@@ -21,7 +21,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     $password = trim($_POST['password']);
 
     if (empty($role_id)) {
-        $error = "Please choose a role first.";
+        echo "<script>alert('Please choose a role first');</script>";
     } elseif (empty($email) || empty($password)) {
         $error = "All fields are required.";
     } else {
@@ -58,10 +58,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
                 }
                 exit();
             } else {
-                $error = "Invalid email or password.";
+                echo "<script>alert('Invalid email or password.');</script>";
             }
         } else {
-            $error = "User not found.";
+            echo "<script>alert('User not found.');</script>";
         }
         $stmt->close();
     }
@@ -110,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
                 value="<?php echo !empty($role_id) 
                     ? 'Sign In (' . ['Patient', 'Doctor', 'Nurse', 'Admin'][$role_id - 1] . ')' 
                     : 'Sign In'; ?>" 
-                class="btn btn-green">
+                class="btn-submit">
               
             <p class="register-link">Don't have an account yet? <a href="register.php">Sign up here</a>.</p>
         </form>

@@ -60,7 +60,7 @@ input[type=date] { /* Include other input types here */
    background-color: hsl(327, 84%, 36%); /* Darker pink on hover */
 }
 
-.btn-green {
+.btn-submit {
    width: 100%; /* Full width for submit button */
    padding: 10px;
    background-color: hsl(327, 84%, 46%); /* pink background for submit button */

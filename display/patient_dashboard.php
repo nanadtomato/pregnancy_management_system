@@ -24,7 +24,7 @@ $userFirstName = $_SESSION['name'];
         <?php include('../includes/navbar.php'); ?>
 
         <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column" style="margin-left: 210px;">
+        <div id="content-wrapper" class="d-flex flex-column" style="margin-left: 210px;margin-top:56px;">
             <!-- Main Content -->
             <div id="content" class="container-fluid">
                 <h1 class="h3 mb-4 text-gray-800">Dashboard</h1>

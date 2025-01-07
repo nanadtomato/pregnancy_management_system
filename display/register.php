@@ -142,7 +142,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
             </div>
 
             <!-- Submit Button -->
-            <input type="submit" name="submit" id="submitBtn" value="Register" class="btn btn-green">
+            <input type="submit" name="submit" id="submitBtn" value="Register" class="btn-submit">
             <p class="login-link">Already have an account? <a href="login.php">Log in here</a>.</p>
         </form>
     </div>

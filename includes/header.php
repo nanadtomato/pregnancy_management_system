@@ -31,7 +31,7 @@
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             <span class="d-none d-lg-inline text-gray-600 small"><?php echo htmlspecialchars($_SESSION['name']); ?></span>
-                            <img class="img-profile rounded-circle ms-2" src="img/undraw_profile.svg" alt="Profile" style="width: 40px; height: 40px;">
+                            <img class="img-profile rounded-circle ms-2" src="../img/undraw_profile.svg" alt="Profile" style="width: 40px; height: 40px;">
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end shadow animated--grow-in" aria-labelledby="userDropdown">
                             <li><a class="dropdown-item" href="#">
