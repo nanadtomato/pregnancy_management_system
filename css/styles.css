@@ -1,0 +1,188 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+
+.role-selection {
+    text-align: center; /* Center the role selection */
+}
+
+.login-form,
+.register-form {
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 500px; /* Fixed width for form */
+}
+
+h2 {
+    color: #333;
+    text-align: center; /* Center h2 */
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type=email],
+input[type=password],
+input[type=text],
+input[type=date] { /* Include other input types here */
+    width: calc(100% - 20px); /* Full width minus padding */
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.role-selection button {
+   margin-right: 5px; /* Space between buttons */
+   padding: 10px; /* Button padding */
+   background-color: hsl(327, 84%, 46%); /* pink background */
+   color: white; /* White text */
+   border-radius: 4px; /* Rounded corners */
+   border: none; /* No border */
+   cursor: pointer; /* Pointer cursor on hover */
+}
+
+.role-selection button:hover {
+   background-color: hsl(327, 84%, 36%); /* Darker pink on hover */
+}
+
+.btn-green {
+   width: 100%; /* Full width for submit button */
+   padding: 10px;
+   background-color: hsl(327, 84%, 46%); /* pink background for submit button */
+   color: white; /* White text */
+   border-radius: 6px; /* Rounded corners */
+   border: none; /* No border */
+   cursor: pointer; /* Pointer cursor on hover */
+}
+
+.error {
+   color: red;
+   text-align: center; /* Center error message */
+}
+
+.register-link,
+.login-link {
+   text-align: center; /* Center register/login link */
+   margin-top: 15px; /* Space above link */
+}
+
+.sidebar{
+    display: flex;
+	position: relative;
+
+}
+
+.sidebar .sidebar-area{
+	z-index: 1;
+	position: fixed;
+	top: 50px;
+	background: #000000; 
+	width: 219px;
+	height: 100%;
+	padding: 100px 10px 10px 10px;
+	left: 0;
+	top: 0;
+	min-height: 500px;
+}
+
+.sidebar-menu{
+	padding: 0;
+}
+
+.sidebar-menu li{
+	list-style-type: none;
+}
+
+.sidebar-menu li a{
+	color: #fff;
+	z-index: 999;
+	display: block;
+	text-decoration: none !important;
+	padding: 7px 15px;
+	font-size: 15px;
+}
+
+.sidebar-menu li a:hover{
+	background: #f21d7d; 
+}
+
+.sidebar-menu-icon{
+	margin-right: 10px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.header {
+    background-color: #e9258a;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header .logo {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.header .menu {
+    display: flex;
+    align-items: center;
+}
+
+.header .menu .user {
+    position: relative;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.header .menu .user span {
+    margin-right: 10px;
+}
+
+.header .menu .dropdown {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: white;
+    color: black;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.header .menu .dropdown a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: black;
+}
+
+.header .menu .dropdown a:hover {
+    background-color: #f1f1f1;
+}
+
+.header .menu .user:hover .dropdown {
+    display: block;
+}
