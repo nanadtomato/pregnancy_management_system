@@ -13,15 +13,30 @@ $userFirstName = $_SESSION['name'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
-<?php include('../includes/header.php'); ?>
+<!-- <?php include('../includes/header.php'); ?> -->
 <head>
-    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
- 
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="../css/mainStyles.css">
+    <style> .edit-button {
+        color: #fff;
+        background-color: #f76c6c;
+        border: none;
+        border-radius: 5px;
+        padding: 8px 12px;
+        font-size: 14px;
+    }</style>
+    
 </head>
+
+
+
 <body id="page-top">
+<div class="main-content">
+ 
+ <main>
     <div id="wrapper">
         <!-- Sidebar -->
-        <?php include('../includes/navbar.php'); ?>
+        <!-- <?php include('../includes/navbar.php'); ?> -->
 
         <!-- Content Wrapper -->
         <div id="content-wrapper" class="d-flex flex-column" style="margin-left: 210px;">
@@ -49,7 +64,7 @@ $userFirstName = $_SESSION['name'];
   <div class="tab-content mt-3" id="recordTabContent">
     <!-- Tab 1 Content -->
     <div class="tab-pane fade show active" id="personal-info" role="tabpanel" aria-labelledby="personal-info-tab">
-      <h4>Patient Personal Information</h4>
+      <h4>All patient information</h4>
       <div class="accordion" id="personalInfoAccordion">
         <!-- Subsection 1 -->
         <div class="accordion-item">
@@ -66,6 +81,15 @@ $userFirstName = $_SESSION['name'];
                   <label for="name" class="form-label">Name</label>
                   <input type="text" class="form-control" id="name" placeholder="Enter patient's name">
                 </div>
+                <div class="mb-3">
+                  <label for="citizenship" class="form-label">Citizenship</label>
+                  <input type="text" class="form-control" id="name" placeholder="Enter patient's citizenship">
+                </div>
+                <div class="mb-3">
+                  <label for="ethnic group" class="form-label">Ethnic Group</label>
+                  <input type="text" class="form-control" id="name" placeholder="Enter patient's ethnic group">
+                </div>
+                <button class="edit-button">Edit </button>
                 <!-- Add more fields -->
               </form>
             </div>
@@ -91,23 +115,11 @@ $userFirstName = $_SESSION['name'];
 <div class="row">
   <!-- Card 1 -->
   <div class="col-md-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Patient Information</h5>
-        <p class="card-text">Fill in patient's details.</p>
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#patientInfoModal">Edit</button>
-      </div>
-    </div>
+    
   </div>
   <!-- Card 2 -->
   <div class="col-md-4">
-    <div class="card">
-      <div class="card-body">
-        <h5 class="card-title">Previous Pregnancy Details</h5>
-        <p class="card-text">Add details of previous pregnancies.</p>
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#pregnancyModal">Edit</button>
-      </div>
-    </div>
+    
   </div>
 </div>
 <div class="modal fade" id="patientInfoModal" tabindex="-1" aria-labelledby="patientInfoModalLabel" aria-hidden="true">
@@ -138,5 +150,7 @@ $userFirstName = $_SESSION['name'];
         </div>
     </div>
     <?php include('../includes/scripts.php'); ?>
+    </main>
+  </div>
 </body>
 </html>

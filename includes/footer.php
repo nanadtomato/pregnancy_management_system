@@ -1,15 +1,8 @@
  <!-- Footer -->
- <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Your Website 2021</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+ <div style="clear:both;color:#aaa; padding:20px;">
 
-        </div>
+<hr /><center>&copy; <?php echo date ('Y'); ?> Pregnancy Management System - Developed by Nadia Husna</center>
 
-</body>
+</div>
 
 </html>

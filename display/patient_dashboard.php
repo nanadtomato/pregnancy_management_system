@@ -10,46 +10,41 @@ if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] != 1) {
 }
 
 $userFirstName = $_SESSION['name'];
+
+// Fetch user data
+$user_id = $_SESSION['user_id'];
+$query = "SELECT * FROM users WHERE id = ?";
+$stmt = $conn->prepare($query);
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$user_result = $stmt->get_result();
+$user_data = $user_result->fetch_assoc();
+
+// Fetch patient's data
+$query_patient = "SELECT * FROM patients WHERE user_id = ?";
+$stmt_patient = $conn->prepare($query_patient);
+$stmt_patient->bind_param("i", $user_id);
+$stmt_patient->execute();
+$patient_result = $stmt_patient->get_result();
+$patient_data = $patient_result->fetch_assoc();
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
-<?php include('../includes/header.php'); ?>
 <head>
-    <link href="../css/sb-admin-2.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Patient Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+   
+    <link rel="stylesheet" href="../css/mainStyles.css">
 </head>
-<body id="page-top">
-    <div id="wrapper">
-        <!-- Sidebar -->
-        <?php include('../includes/navbar.php'); ?>
+<body>
 
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column" style="margin-left: 210px;margin-top:56px;">
-            <!-- Main Content -->
-            <div id="content" class="container-fluid">
-                <h1 class="h3 mb-4 text-gray-800">Dashboard</h1>
+<?php include('../includes/navbar.php'); ?>
 
-                <!-- Dashboard Cards -->
-                <div class="row mt-4">
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-primary shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <?php include('../includes/scripts.php'); ?>
+<?php include('../includes/scripts.php'); ?>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

@@ -80,41 +80,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
-<body>
-    <div class="container">
-        <?php if (!empty($error)) echo "<p class='error'>$error</p>"; ?>
+<section class="hero-section">
+<div class="container d-flex align-items-center fs-1 text-white flex-column">
+<?php if (!empty($error)) echo "<p class='error'>$error</p>"; ?>
 
-        <form method="POST" class="login-form">
-            <h2 style="text-align: center; color: #333;">Sign In</h2>
+<form method="POST" class="login-form">
+    <h2 style="text-align: center; color: #333;">Sign In</h2>
 
-            <!-- Role Selection -->
-            <div class="role-selection">
-                <button type="button" onclick="setRole(1)">Patient</button>
-                <button type="button" onclick="setRole(2)">Doctor</button>
-                <button type="button" onclick="setRole(3)">Nurse</button>
-                <button type="button" onclick="setRole(4)">Admin</button>
-            </div>
-
-            <!-- Hidden Input -->
-            <input type="hidden" name="role_id" id="role_id" value="<?php echo htmlspecialchars($role_id); ?>">
-
-            <!-- Email and Password -->
-            <label for="email">Email:</label>
-            <input type="email" name="email" placeholder="user@email.com" required>
-
-            <label for="password">Password:</label>
-            <input type="password" name="password" placeholder="password" required>
-
-            <!-- Submit Button -->
-            <input type="submit" name="submit" id="submitBtn" 
-                value="<?php echo !empty($role_id) 
-                    ? 'Sign In (' . ['Patient', 'Doctor', 'Nurse', 'Admin'][$role_id - 1] . ')' 
-                    : 'Sign In'; ?>" 
-                class="btn-submit">
-              
-            <p class="register-link">Don't have an account yet? <a href="register.php">Sign up here</a>.</p>
-        </form>
+    <!-- Role Selection -->
+    <div class="role-selection">
+        <button type="button" onclick="setRole(1)">Patient</button>
+        <button type="button" onclick="setRole(2)">Doctor</button>
+        <button type="button" onclick="setRole(3)">Nurse</button>
+        <button type="button" onclick="setRole(4)">Admin</button>
     </div>
+
+    <!-- Hidden Input -->
+    <input type="hidden" name="role_id" id="role_id" value="<?php echo htmlspecialchars($role_id); ?>">
+
+    <!-- Email and Password -->
+    <label for="email">Email:</label>
+    <input type="email" name="email" placeholder="user@email.com" required>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" placeholder="password" required>
+
+    <!-- Submit Button -->
+    <input type="submit" name="submit" id="submitBtn" 
+        value="<?php echo !empty($role_id) 
+            ? 'Sign In (' . ['Patient', 'Doctor', 'Nurse', 'Admin'][$role_id - 1] . ')' 
+            : 'Sign In'; ?>" 
+        class="btn-submit">
+      
+    <p class="register-link">Don't have an account yet? <a href="register.php">Sign up here</a>.</p>
+</form>
+</div>
+ </section>
+
+
+   
     <!-- Bootstrap Bundle JS (includes Popper.js) -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <!-- JavaScript -->

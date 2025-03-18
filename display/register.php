@@ -59,20 +59,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
             $stmt->bind_param("sssssssi", $name, $email, $hashed_password, $phone, $address, $date_of_birth, $identification_number, $role_id);
 
             if ($stmt->execute()) {
-                // Set success message and redirect to login page
+                // Fetch the last inserted user ID
+                $user_id = $stmt->insert_id;
+
+                // Insert user into respective tables based on role
+                switch ($role_id) {
+                    case 1: // Patient
+                        $stmt2 = $conn->prepare("INSERT INTO patients (user_id, last_menstrual_date) VALUES (?, ?)");
+                        $stmt2->bind_param("is", $user_id, $last_menstrual_date);
+                        if (!$stmt2->execute()) {
+                            die("Error inserting into patients: " . $stmt2->error);
+                        }
+                        break;
+
+                    case 2: // Doctor
+                        $stmt2 = $conn->prepare("INSERT INTO doctors (user_id, license_number) VALUES (?, ?)");
+                        $stmt2->bind_param("is", $user_id, $license_number);
+                        if (!$stmt2->execute()) {
+                            die("Error inserting into doctors: " . $stmt2->error);
+                        }
+                        break;
+
+                    case 3: // Nurse
+                        $stmt2 = $conn->prepare("INSERT INTO nurses (user_id, nurse_license_number) VALUES (?, ?)");
+                        $stmt2->bind_param("is", $user_id, $nurse_license_number);
+                        if (!$stmt2->execute()) {
+                            die("Error inserting into nurses: " . $stmt2->error);
+                        }
+                        break;
+                }
+
+                // Redirect to login page after successful registration
                 $_SESSION['success_message'] = "Registration successful! You can now log in.";
-                header("Location: login.php"); // Redirect to the login page
+                header("Location: login.php");
                 exit();
             } else {
                 $_SESSION['error_message'] = "Failed to register user. Please try again.";
-                header("Location: register.php"); // Redirect back to registration page
+                header("Location: register.php");
                 exit();
             }
-            
         }
     } else {
         $_SESSION['error_message'] = "All fields are required.";
-        header("Location: register.php"); // Redirect back to registration page
+        header("Location: register.php");
         exit();
     }
 }
@@ -83,69 +112,73 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register</title>
-    <h1>Pregnancy Management System</h1>
+  
     <link rel="stylesheet" type="text/css" href="../css/styles.css">
 </head>
 <body>
-    <div class="container">
-        <?php if (!empty($error)) echo "<p class='error'>$error</p>"; ?>
+<section class="hero-section">
+<div class="container d-flex align-items-center fs-1 text-white flex-column">
+<?php if (!empty($error)) echo "<p class='error'>$error</p>"; ?>
 
-        <!-- Role Selection -->
-        <form method="POST" class="register-form">
-            <h2 style="text-align: center; color: #333;">Create Account</h2>
+<!-- Role Selection -->
+<form method="POST" class="register-form">
+    <h2 style="text-align: center; color: #333;">Create Account</h2>
 
-            <div class="role-selection">
-                <button type="button" onclick="setRole(1)">Patient</button>
-                <button type="button" onclick="setRole(2)">Doctor</button>
-                <button type="button" onclick="setRole(3)">Nurse</button>
-                <button type="button" onclick="setRole(4)">Admin</button>
-            </div>
-
-            <input type="hidden" name="role_id" id="role_id" value="<?php echo htmlspecialchars($role_id); ?>">
-
-            <!-- Common Fields -->
-            <label for="name">Name:</label>
-            <input type="text" name="name" placeholder="Your Name" required>
-
-            <label for="password">Password:</label>
-            <input type="password" name="password" placeholder="••••••••" required>
-
-            <label for="email">Email:</label>
-            <input type="email" name="email" placeholder="user@email.com" required>
-
-            <label for="phone">Phone Number:</label>
-            <input type="text" name="phone" placeholder="Your Phone Number" required>
-
-            <label for="address">Address:</label>
-            <input type="text" name="address" placeholder="Your Address" required>
-
-            <label for="date_of_birth">Date of Birth:</label>
-            <input type="date" name="date_of_birth" required>
-
-            <label for="identification_number">Identification Number:</label>
-            <input type="text" name="identification_number" placeholder="e.g., IC Number or Passport Number" required>
-
-            <!-- Role-Specific Fields -->
-            <div id="patientFields" style="display:none;">
-                <label for="last_menstrual_date">Last Menstrual Date:</label>
-                <input type="date" name="last_menstrual_date">
-            </div>
-
-            <div id="doctorFields" style="display:none;">
-                <label for="license_number">Medical License Number:</label>
-                <input type="text" name="license_number">
-            </div>
-
-            <div id="nurseFields" style="display:none;">
-                <label for="nurse_license_number">Nurse License Number:</label>
-                <input type="text" name="nurse_license_number">
-            </div>
-
-            <!-- Submit Button -->
-            <input type="submit" name="submit" id="submitBtn" value="Register" class="btn-submit">
-            <p class="login-link">Already have an account? <a href="login.php">Log in here</a>.</p>
-        </form>
+    <div class="role-selection">
+        <button type="button" onclick="setRole(1)">Patient</button>
+        <button type="button" onclick="setRole(2)">Doctor</button>
+        <button type="button" onclick="setRole(3)">Nurse</button>
+        <button type="button" onclick="setRole(4)">Admin</button>
     </div>
+
+    <input type="hidden" name="role_id" id="role_id" value="<?php echo htmlspecialchars($role_id); ?>">
+
+    <!-- Common Fields -->
+    <label for="name">Name:</label>
+    <input type="text" name="name" placeholder="Your Name" required>
+
+    <label for="password">Password:</label>
+    <input type="password" name="password" placeholder="••••••••" required>
+
+    <label for="email">Email:</label>
+    <input type="email" name="email" placeholder="user@email.com" required>
+
+    <label for="phone">Phone Number:</label>
+    <input type="text" name="phone" placeholder="Your Phone Number" required>
+
+    <label for="address">Address:</label>
+    <input type="text" name="address" placeholder="Your Address" required>
+
+    <label for="date_of_birth">Date of Birth:</label>
+    <input type="date" name="date_of_birth" required>
+
+    <label for="identification_number">Identification Number:</label>
+    <input type="text" name="identification_number" placeholder="e.g., IC Number or Passport Number" required>
+
+    <!-- Role-Specific Fields -->
+    <div id="patientFields" style="display:none;">
+        <label for="last_menstrual_date">Last Menstrual Date:</label>
+        <input type="date" name="last_menstrual_date">
+    </div>
+
+    <div id="doctorFields" style="display:none;">
+        <label for="license_number">Medical License Number:</label>
+        <input type="text" name="license_number">
+    </div>
+
+    <div id="nurseFields" style="display:none;">
+        <label for="nurse_license_number">Nurse License Number:</label>
+        <input type="text" name="nurse_license_number">
+    </div>
+
+    <!-- Submit Button -->
+    <input type="submit" name="submit" id="submitBtn" value="Register" class="btn-submit">
+    <p class="login-link">Already have an account? <a href="login.php">Log in here</a>.</p>
+</form>
+</div>
+ </section>
+    
+        
 
     <!-- JavaScript to handle role selection -->
     <script>
