@@ -13,27 +13,101 @@
     font-family: 'Poppins', sans-serif;
 }
 
+/* Sidebar styling */
 .sidebar {
     width: 250px;
+    height: 100vh; /* Sidebar takes full height of the viewport */
     position: fixed;
     left: 0;
     top: 0;
-    height: 100%;
-    background: var(--main-color);
-    z-index: 100;
-    transition: width 300ms, left 300ms;
-    overflow: hidden;
+    background: #f8bbd0;
+    z-index: 500;
 }
+
 
 .sidebar-brand {
-    height: 80px;
     padding: 1rem;
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+    text-align: center;
+    background: #f48fb1; /* Deeper Pink for the brand */
+    font-size: 1.5rem;
+    color: #ffffff;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #f06292;
 }
 
+
+/* Sidebar content area */
+.sidebar-content {
+    max-height: calc(100vh - 60px); /* Subtract header height (if any) */
+    overflow-y: auto; /* Allow scrolling for content inside sidebar */
+    padding: 10px 0; /* Ensure content is not squished */
+}
+
+/* Sidebar brand remains at the top */
+.sidebar-brand {
+    padding: 1rem;
+    text-align: center;
+    background: #f48fb1;
+    font-size: 1.5rem;
+    color: #ffffff;
+    font-weight: bold;
+    letter-spacing: 1px;
+    border-bottom: 1px solid #f06292;
+}
+
+.sidebar-brand i {
+    margin-right: 10px;
+}
+
+
+.sidebar-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar-menu ul li {
+    padding: 15px 20px;
+    border-bottom: 1px solid #f48fb1;
+}
+
+.sidebar-menu ul li a {
+    text-decoration: none;
+    color: #8c0749; /* Purple text for contrast */
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    transition: background 0.3s, color 0.3s;
+}
+
+.sidebar-menu ul li a i {
+    margin-right: 15px;
+    font-size: 1.2rem;
+}
+
+.sidebar-menu ul li a:hover {
+    background: #f06292; /* Darker pink on hover */
+    color: #ffffff;
+    border-radius: 8px;
+}
+
+/* Active menu item styling */
+.sidebar-menu ul li a.active {
+    background: #ec407a; /* Highlight active */
+    color: #ffffff;
+    border-radius: 8px;
+}
+
+/* Logout button styling */
+.sidebar-menu ul li.logout a {
+    color: #d32f2f;
+}
+
+.sidebar-menu ul li.logout a:hover {
+    background: #c62828;
+    color: #ffffff;
+}
 .sidebar-menu {
     margin-top: 1rem;
 }
@@ -50,6 +124,7 @@
     font-size: 1rem;
     transition: background 0.3s, color 0.3s;
     border-radius: 30px 0px 0px 30px;
+    text-decoration: none;
 }
 
 .sidebar-menu a.active {
@@ -66,27 +141,87 @@
     padding-right: 1rem;
 }
 
+/* Main content */
 .main-content {
-    transition: margin-left 300ms ease;
-    margin-left: 250px;
+    margin-left: 250px; /* Sidebar width */
+    padding: 2rem;
+    background: #f1f5f9;
+    min-height: 100vh; /* Ensure content takes full height */
+    padding-top: 60px; /* Adjust for fixed header */
+    transition: margin-left 0.3s ease, width 0.3s ease;
+    flex-grow: 1;
 }
 
+/* Header Styles */
 header {
-    background: #fff;
+    position: fixed;
+    top: 0;
+    left: 250px; /* Sidebar width */
+    width: calc(100% - 250px);
+    z-index: 1000;
+    background: #ffe4ec;
+    padding: 0.5rem 2rem; /* Reduced header padding */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     display: flex;
     justify-content: space-between;
-    padding: 1rem 1.5rem;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
-    position: fixed;
-    left: 250px;
-    width: calc(100% - 250px);
-    top: 0;
-    z-index: 100;
-    transition: left 300ms;
+    align-items: center;
+    height: 60px; /* Adjusted header height */
+}
+/* Main header container for layout */
+header .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+/* Header right section to position search and user profile */
+.header-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end; /* Align content to the right */
 }
 
 header h2 {
-    color: #222;
+    color: #ad1457; /* Strong pink */
+    font-size: 1.2rem; /* Smaller header font size */
+    flex: 1;
+    text-align: left;
+    margin: 0;
+}
+
+.hamburger-label {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 1.5rem; /* Slightly smaller hamburger icon */
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+.search-wrapper {
+    display: flex;
+    align-items: center;
+    background: #fff;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    margin-right: 20px; /* Ensure spacing from the user profile */
+}
+
+.search-wrapper i {
+    color: #ec407a;
+    margin-right: 10px;
+}
+
+.search-wrapper input {
+    border: none;
+    outline: none;
+    background: none;
+    font-size: 1rem;
 }
 
 header label {
@@ -98,15 +233,6 @@ header label span {
     padding-right: 1rem;
 }
 
-.search-wrapper {
-    border: 1px solid #ccc;
-    border-radius: 30px;
-    height: 50%;
-    display: flex;
-    align-items: center;
-    padding: 0.5rem;
-    overflow-x: hidden;
-}
 
 .search-wrapper span {
     display: inline-block;
@@ -114,25 +240,33 @@ header label span {
     font-size: 1.5rem;
 }
 
-.search-wrapper input {
-    border: none;
-    outline: none;
-    flex: 1;
-}
-
 .user-wrapper {
-    position: relative;
-    cursor: pointer;
     display: flex;
     align-items: center;
-    gap: 10px;
 }
+
+.user-wrapper img {
+    border-radius: 50%;
+    width: 40px; /* Reduced size for profile image */
+    height: 40px;
+    margin-left: 10px;
+}
+
 
 .user-info {
-    display: flex;
-    align-items: center;
-    gap: 5px;
+    margin-right: 10px;
+    text-align: right;
+    font-size: 1rem;
+}
 
+.user-info h5 {
+    font-size: 1rem; /* Smaller user name */
+    margin: 0;
+}
+
+.user-info small {
+    font-size: 0.8rem; /* Smaller role text */
+    color: #7a7a7a;
 }
 
 .dropdown-menu {
@@ -169,12 +303,12 @@ header label span {
 }
 
 main {
-    margin-top: 95px;
+    margin-top: 100px; /* Adjust this value to match header height */
     padding: 2rem 1.5rem;
     background: #f1f5f9;
-    min-height: calc(100vh - 90px);
+    min-height: calc(100vh - 60px); /* Ensures content doesn't overflow header */
+    overflow-y: auto;
 }
-
 /* Sidebar Toggle for Small Screens */
 @media only screen and (max-width: 1200px) {
     .sidebar {
@@ -186,9 +320,14 @@ main {
     }
 
     .main-content {
-         transition: margin-left 300ms ease;
-    margin-left: 250px;
-    width: calc(100% - 250px);
+        margin-left: 80px;
+        width: calc(100% - 80px); /* Ensure content takes up the remaining width */
+    }
+
+/* Adjust for collapsed sidebar */
+.sidebar.collapsed + .main-content {
+    margin-left: 80px; /* Adjusted to collapsed sidebar width */
+    width: calc(100% - 80px); /* Adjust width when sidebar is collapsed */
 }
 
     header {
@@ -202,7 +341,8 @@ main {
     }
 }
 
-/* Fix for .la-bars */
+
+/* Fix for the .la-bars (hamburger icon) */
 .la-bars:before {
     content: "\f0c9"; /* Unicode for bars icon */
     font-family: "Line Awesome Free"; /* Ensure correct font */
@@ -216,6 +356,7 @@ main {
     font-weight: 900;
     cursor: pointer;
 }
+
 
 /* Sidebar collapsed state */
 .sidebar.collapsed {
@@ -264,7 +405,13 @@ header.collapsed {
     background-color: #fff0f4;
 }
 
-.sidebar-menu ul li a {
+
+a {
     text-decoration: none;
-    color: inherit; /* Optional: keeps the text color */
+    color: inherit; /* optional, keeps color same */
+  }
+  
+.card-hover:hover {
+    background-color: #fce4ec;
+    transition: 0.3s;
 }

@@ -49,8 +49,8 @@ $totalPatients = $totalPatientsQuery->fetch_assoc()['total'];
 <body>
 <?php include('../includes/navbar.php'); ?>
 
-<div class="main-content">
-    <main>
+
+<main> 
         <h2 class="text-center mb-4">Welcome, Dr. <?php echo htmlspecialchars($userFirstName); ?></h2>
 <!-- Stats Cards -->
 <div class="row g-4 mb-4">
@@ -99,12 +99,12 @@ $totalPatients = $totalPatientsQuery->fetch_assoc()['total'];
                     </tbody>
                 </table>
             </div>
-        
+            </main>
 
 
-    </main>
+
        
-    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
     <?php include('../includes/scripts.php'); ?>
 </body>

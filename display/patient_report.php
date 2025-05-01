@@ -19,7 +19,7 @@ $userFirstName = $_SESSION['name'];
 <link rel="stylesheet" href="../css/mainStyles.css">
 <title>Report</title>
 </head>
- <!-- <?php include('../includes/navbar.php'); ?> -->
+ <?php include('../includes/navbar.php'); ?>
 
  <body>
  <div class="main-content">
