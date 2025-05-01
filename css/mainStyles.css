@@ -241,3 +241,30 @@ header.collapsed {
 .sidebar.collapsed .sidebar-menu a span:last-child {
     display: none;
 }
+
+.bg-pink {
+    background-color: #ff69b4 !important; /* or any pink shade you prefer */
+    color: white;
+}
+
+.accordion-button {
+    background-color: #f8d7da; /* light pink */
+    color: #721c24; /* dark pink/red text */
+}
+.accordion-button:not(.collapsed) {
+    background-color: #f5c6cb;
+    color: #721c24;
+}
+.accordion-item {
+    border: 1px solid #f5c6cb;
+}
+
+.card-custom {
+    border-left: 5px solid #f78da7;
+    background-color: #fff0f4;
+}
+
+.sidebar-menu ul li a {
+    text-decoration: none;
+    color: inherit; /* Optional: keeps the text color */
+}

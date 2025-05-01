@@ -51,5 +51,39 @@ CREATE TABLE kick_logs (
     FOREIGN KEY (patient_id) REFERENCES users(id)
 );
 
--- Admin-Specific Data (if needed)
--- Additional tables for admin-specific data can be created here.
+CREATE TABLE mother_information (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    patient_id INT,
+    registration_number VARCHAR(100),
+    id_card_number VARCHAR(100),
+    date_of_birth DATE,
+    age INT,
+    clinic_phone_number VARCHAR(20),
+    jkn_serial_number VARCHAR(100),
+    antenatal_color_code VARCHAR(50),
+    ethnic_group VARCHAR(50),
+    nationality VARCHAR(50),
+    education_level VARCHAR(50),
+    occupation VARCHAR(100),
+    home_address_1 TEXT,
+    home_address_2 TEXT,
+    phone_residential VARCHAR(20),
+    phone_mobile VARCHAR(20),
+    phone_office VARCHAR(20),
+    nurse_ym VARCHAR(100),
+    workplace_address TEXT,
+    estimated_due_date DATE,
+    revised_due_date DATE,
+    gravida INT,
+    para INT,
+    husband_name VARCHAR(100),
+    husband_id_card_number VARCHAR(100),
+    husband_occupation VARCHAR(100),
+    husband_workplace_address TEXT,
+    husband_phone_residential VARCHAR(20),
+    husband_phone_mobile VARCHAR(20),
+    postnatal_address_1 TEXT,
+    postnatal_address_2 TEXT,
+    postnatal_address_3 TEXT,
+    risk_factors TEXT
+);

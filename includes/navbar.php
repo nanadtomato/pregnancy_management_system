@@ -15,6 +15,7 @@ $userStatus = $_SESSION['userStatus'] ?? 0; // Default to '0' if not set
         <!-- flaticom CDN Links -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
         <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel= "stylesheet" href= "https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css" >
         <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,7 +35,7 @@ $userStatus = $_SESSION['userStatus'] ?? 0; // Default to '0' if not set
                     <!-- Patient Role -->
         <li>
             <a href="patient_dashboard.php" class="">
-            <i class='bx bxs-dashboard'></i>
+            <i class="bi bi-menu-down"></i>
             <span class="linksname"> Dashboard</span>
             </a>
             <span class="tooltip">Dashboard</span>
@@ -48,7 +49,7 @@ $userStatus = $_SESSION['userStatus'] ?? 0; // Default to '0' if not set
             <span class="tooltip">Health Record</span>
         </li>
         <li>
-            <a href="pregnancyProgress.php" class="">
+            <a href="patient_pregnancy_progress.php" class="">
             <i class="fas fa-fw fa-chart-line"></i>
             <span class="linksname">Pregnancy Progress Tracking</span>
             </a>
@@ -56,7 +57,7 @@ $userStatus = $_SESSION['userStatus'] ?? 0; // Default to '0' if not set
         </li>
         
         <li>
-            <a href="appointment.php" class="">
+            <a href="patient_appointment.php" class="">
             <i class="fas fa-fw fa-calendar-alt"></i>
             <span class="linksname">Appointment</span>
             </a>
@@ -70,14 +71,21 @@ $userStatus = $_SESSION['userStatus'] ?? 0; // Default to '0' if not set
             <span class="tooltip">Care Collaboration Record</span>
         </li>
         <li>
-            <a href="report.php" class="">
+            <a href="patient_report.php" class="">
             <i class="fas fa-fw fa-file-alt"></i>
             <span class="linksname">Report</span>
             </a>
             <span class="tooltip">Report</span>
         </li>
 
-        
+        <li>
+    <a href="logout.php" class="">
+        <i class="fas fa-sign-out-alt"></i>
+        <span class="linksname">Logout</span>
+    </a>
+    <span class="tooltip">Logout</span>
+</li>
+
 
 
         <?php elseif ($userStatus == 2 ): ?>
@@ -91,7 +99,7 @@ $userStatus = $_SESSION['userStatus'] ?? 0; // Default to '0' if not set
         </li>
 
         <li>
-            <a href="patient.php" class="">
+            <a href="doctor_manage_patient.php" class="">
              <i class="fas fa-fw fa-user-md"></i>
             <span class="linksname">Patient Management</span>
             </a>
@@ -99,7 +107,23 @@ $userStatus = $_SESSION['userStatus'] ?? 0; // Default to '0' if not set
         </li>
 
         <li>
-            <a href="../view/doctor/appointment.php" class="">
+            <a href="doctor_manage_health_record_patient.php" class="">
+             <i class="fas fa-fw fa-user-md"></i>
+            <span class="linksname">Patient's Health Record Management</span>
+            </a>
+            <span class="tooltip">Patient's Health Record Management</span>
+        </li>
+
+        <li>
+            <a href="doctor_manage_carecollaboration_record_patient.php" class="">
+             <i class="fas fa-fw fa-user-md"></i>
+            <span class="linksname">Patient's Care Collaboration Record Management</span>
+            </a>
+            <span class="tooltip">Patient's Care Collaboration Record Management</span>
+        </li>
+
+        <li>
+            <a href="doctor_manage_appointment.php" class="">
             <i class="fas fa-fw fa-calendar-alt"></i>
             <span class="linksname">Appointment</span>
             </a>
@@ -112,6 +136,14 @@ $userStatus = $_SESSION['userStatus'] ?? 0; // Default to '0' if not set
             </a>
             <span class="tooltip">Report</span>
         </li>
+        <li>
+    <a href="logout.php" class="">
+        <i class="fas fa-sign-out-alt"></i>
+        <span class="linksname">Logout</span>
+    </a>
+    <span class="tooltip">Logout</span>
+</li>
+
 
         <?php elseif ($userStatus == 3 ): ?>
          <!-- Nurse  Role -->
@@ -145,6 +177,22 @@ $userStatus = $_SESSION['userStatus'] ?? 0; // Default to '0' if not set
             </a>
             <span class="tooltip">Report</span>
         </li>
+
+        <li>
+    <a href="logout.php" class="">
+        <i class="fas fa-sign-out-alt"></i>
+        <span class="linksname">Logout</span>
+    </a>
+    <span class="tooltip">Logout</span>
+</li>
+<li>
+    <a href="logout.php" class="">
+        <i class="fas fa-sign-out-alt"></i>
+        <span class="linksname">Logout</span>
+    </a>
+    <span class="tooltip">Logout</span>
+</li>
+
 
         <?php elseif ($userStatus == 4): ?>
         <!-- Admin Role -->
@@ -183,6 +231,15 @@ $userStatus = $_SESSION['userStatus'] ?? 0; // Default to '0' if not set
             </a>
             <span class="tooltip">Report</span>
         </li>
+
+        <li>
+    <a href="logout.php" class="">
+        <i class="fas fa-sign-out-alt"></i>
+        <span class="linksname">Logout</span>
+    </a>
+    <span class="tooltip">Logout</span>
+</li>
+
         <?php endif; ?>
     </ul>
 
@@ -287,6 +344,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
     }
 });
+
 
 </script>
 

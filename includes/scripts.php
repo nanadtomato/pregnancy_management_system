@@ -16,6 +16,7 @@
 
 <!-- jQuery Easing Plugin -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YMRqp7NwXzS1vHiYUgKLDjaAVP2CzXxQK3wn+FHwJTPFu9yDbblAHM7VyXksh8DK" crossorigin="anonymous"></script>
 
 <!-- Custom Scripts (if you have any custom JS) -->
 <!-- <script src="js/custom-script.js"></script> -->
