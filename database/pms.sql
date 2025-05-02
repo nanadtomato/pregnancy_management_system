@@ -87,3 +87,33 @@ CREATE TABLE mother_information (
     postnatal_address_3 TEXT,
     risk_factors TEXT
 );
+
+CREATE TABLE past_pregnancy_history (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    patient_id INT,
+    year INT,
+    outcome VARCHAR(100),
+    delivery_type VARCHAR(100),
+    place_and_attendant TEXT,
+    gender VARCHAR(10),
+    birth_weight DECIMAL(5,2),
+    breastfeeding_info TEXT,
+    current_condition TEXT,
+    marriage_date DATE
+);
+
+CREATE TABLE family_health_history (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    patient_id INT,
+    menstruation_days INT,
+    menstruation_cycle VARCHAR(100),
+    family_planning_method VARCHAR(100),
+    family_planning_duration VARCHAR(50),
+    smoking_mother BOOLEAN,
+    smoking_husband BOOLEAN,
+    conditions TEXT,
+    tb_screening BOOLEAN,
+    cough_more_than_2_weeks BOOLEAN,
+    family_conditions TEXT,
+    immunisation_status TEXT
+);

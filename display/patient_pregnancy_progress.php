@@ -39,11 +39,19 @@ $patient_id = $_SESSION['user_id'];
 
     </style>
 </head>
-<body>
 
-<?php include('../includes/navbar.php'); ?>
-<main>
-<div class="container py-4">
+<!DOCTYPE html>
+<html lang="en">
+<!-- <?php include('../includes/header.php'); ?> -->
+<head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link rel="stylesheet" href="../css/mainStyles.css">
+    <title>Nurse Dashboard</title>
+</head>
+<body>
+ <div class="main-content">
+ <main>
+ <div class="container py-4">
     <h3>Pregnancy Progress Tracker</h3>
 
     <!-- Kick Tracking Section -->
@@ -121,7 +129,14 @@ $patient_id = $_SESSION['user_id'];
         </div>
     </div>
 </div>
-</main>
+
+  </main>
+</div>
+
+
+
+<?php include('../includes/navbar.php'); ?>
+<?php include('../includes/scripts.php'); ?>
 <script>
 let countdown = 43200; // 12 hours in seconds
 let timerInterval;
@@ -241,7 +256,6 @@ if (!data || data.length === 0) {
 }
 
 
-
 document.getElementById("startDate").addEventListener("change", loadChart);
 document.getElementById("endDate").addEventListener("change", loadChart);
 
@@ -293,8 +307,8 @@ document.getElementById("trackKickBtn").addEventListener("click", () => {
         }).catch(err => console.error("Error in fetch:", err)); // and this
 });
 
-
 </script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

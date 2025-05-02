@@ -3,11 +3,14 @@ session_start();
 require_once "../config.php";
 require_once "../classes/User.php";
 
-// Check if the user is logged in and has the correct role (Doctor)
-if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] != 2) {
+// Check if the user is logged in and has the correct role (Doctor&nurse)
+if (!isset($_SESSION['role_id']) || !in_array($_SESSION['role_id'], [2, 3])) {
     header("Location: ../login.php");
     exit();
 }
+
+$roleName = ($_SESSION['role_id'] == 2) ? "Doctor" : "Nurse";
+echo "<h2 class='mb-4'>{$roleName} - Patient Health Record Management</h2>";
 
 $userFirstName = $_SESSION['name'];
 
@@ -58,8 +61,8 @@ $result = $conn->query($sql);
                     <td><?= htmlspecialchars($row['date_of_birth']) ?></td>
                     <td><?= htmlspecialchars($row['last_menstrual_date']) ?></td>
                     <td>
-                        <a href="doctor_view_health_record.php?user_id=<?= $row['id'] ?>" class="btn btn-primary btn-sm">View</a>
-                        <a href="doctor_edit_health_record.php?user_id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Update</a>
+                        <a href="doctorNurse_view_health_record.php?user_id=<?= $row['id'] ?>" class="btn btn-primary btn-sm">View</a>
+                        <a href="doctorNurse_edit_health_record.php?user_id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Add</a>
                         <a href="doctor_delete_health_record.php?user_id=<?= $row['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?');">Delete</a>
                     </td>
                 </tr>

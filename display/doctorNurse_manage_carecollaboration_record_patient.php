@@ -3,11 +3,20 @@ session_start();
 require_once "../config.php";
 require_once "../classes/User.php";
 
-// Check if the user is logged in and has the correct role (Doctor)
-if (!isset($_SESSION['role_id']) || $_SESSION['role_id'] != 2) {
+// Check if the user is logged in and has the correct role (Doctor&nurse)
+if (!isset($_SESSION['role_id']) || !in_array($_SESSION['role_id'], [2, 3])) {
     header("Location: ../login.php");
     exit();
 }
+
+$roleName = ($_SESSION['role_id'] == 2) ? "Doctor" : "Nurse";
+echo "<h2 class='mb-4'>{$roleName} - Patient Health Record Management</h2>";
+
+// Fetch patients
+$sql = "SELECT users.id, users.name, users.phone, users.date_of_birth, users.identification_number, patients.last_menstrual_date 
+        FROM users 
+        JOIN patients ON users.id = patients.user_id 
+        WHERE users.role_id = 1";
 
 $userFirstName = $_SESSION['name'];
 

@@ -19,39 +19,21 @@ $userFirstName = $_SESSION['name'];
 <link rel="stylesheet" href="../css/mainStyles.css">
     <title>Nurse Dashboard</title>
 </head>
-<body id="page-top">
-    <div id="wrapper">
-        <!-- Sidebar -->
-        <?php include('../includes/navbar.php'); ?>
+<body>
+ <div class="main-content">
+ <main>
 
-        <!-- Content Wrapper -->
-        <div id="content-wrapper" class="d-flex flex-column" style="margin-left: 210px;">
-            <!-- Main Content -->
-            <div id="content" class="container-fluid">
-                <h1 class="h3 mb-4 text-gray-800">Dashboard</h1>
-
-                <!-- Dashboard Cards -->
-                <div class="row mt-4">
-                    <div class="col-xl-3 col-md-6 mb-4">
-                        <div class="card border-left-primary shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row align-items-center">
-                                    <div class="col">
-                                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Earnings (Monthly)</div>
-                                        <div class="h5 mb-0 font-weight-bold text-gray-800">$40,000</div>
-                                    </div>
-                                    <div class="col-auto">
-                                        <i class="fas fa-calendar fa-2x text-gray-300"></i>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
     </div>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <?php include('../includes/scripts.php'); ?>
+</div>
+
+  </main>
+</div>
+
+
+
+<?php include('../includes/navbar.php'); ?>
+<?php include('../includes/scripts.php'); ?>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 </body>
 </html>

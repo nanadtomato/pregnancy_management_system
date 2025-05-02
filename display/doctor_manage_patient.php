@@ -51,7 +51,7 @@ $patients = $stmt->get_result();
 <div class="main-content">
     <main>
     <main class="container mt-4">
-        <h2 class="mb-4 text-center">Patient Management</h2>
+        <h2 class="mb-4 text-center">Patient List</h2>
 
         <!-- Search Form -->
         <form class="row g-3 mb-4" method="GET" action="">

@@ -19,15 +19,24 @@ $userFirstName = $_SESSION['name'];
 <link rel="stylesheet" href="../css/mainStyles.css">
 <title>Report</title>
 </head>
- <?php include('../includes/navbar.php'); ?>
+ <!-- <?php include('../includes/navbar.php'); ?> -->
 
  <body>
  <div class="main-content">
  <main>
- <h2 class="text-center">Report</h2>
 
-</main>
+    </div>
 </div>
- </body>     
+
+  </main>
+</div>
+
+
+
+<?php include('../includes/navbar.php'); ?>
+<?php include('../includes/scripts.php'); ?>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>     
 
 </html>

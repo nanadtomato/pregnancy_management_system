@@ -415,3 +415,10 @@ a {
     background-color: #fce4ec;
     transition: 0.3s;
 }
+
+    .btn-link {
+            color: #d81b60;
+        }
+        .btn-link:hover {
+            color: #c2185b;
+        }

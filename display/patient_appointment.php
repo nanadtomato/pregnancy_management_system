@@ -24,11 +24,19 @@ $userFirstName = $_SESSION['name'];
  <body>
  <div class="main-content">
  <main>
- <div class="container py-4">
- <h2 class="text-center">Appointment</h2>
 
-</main>
+    </div>
 </div>
- </body>     
+
+  </main>
+</div>
+
+
+
+<?php include('../includes/navbar.php'); ?>
+<?php include('../includes/scripts.php'); ?>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>     
 
 </html>

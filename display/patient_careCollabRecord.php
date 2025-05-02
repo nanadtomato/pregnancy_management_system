@@ -64,129 +64,18 @@ $userFirstName = $_SESSION['name'];
  <div class="main-content">
  <main>
 
- 
- <div class="container mt-4">
-  <h2 class="text-center">Care Collaboration Record</h2>
-  <div class="box">
-  <ul class="nav nav-tabs" id="careCollabsTabs" role="tablist">
-        
-  <li class="nav-item" role="presentation">
-            <button class="nav-link active" id="examination_procedure-tab" data-bs-toggle="tab" data-bs-target="#examination_procedure" type="button" role="tab">Examination & Procedure</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="risk_assesment_checklist-tab" data-bs-toggle="tab" data-bs-target="#risk_assesment_checklist" type="button" role="tab">Risk Assesment & Checklist</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="postnatal_collab-tab" data-bs-toggle="tab" data-bs-target="#postnatal_collab" type="button" role="tab">Postnatal Collaboration</button>
-        </li>
-        <li class="nav-item" role="presentation">
-            <button class="nav-link" id="health_education_feedback-tab" data-bs-toggle="tab" data-bs-target="#health_education_feedback" type="button" role="tab">Health Education & Feedback</button>
-        </li>
-    </ul>
- <div class="container my-4">
-
-
-    <div class="accordion" id="careCollabAccordion">
-        <!-- Section: EXAMINATION BY MEDICAL AND DENTAL OFFICERS -->
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="headingExamination_by_medical_dentalofficer">
-    
-                <button class="accordion-button custom-pink" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExamination_by_medical_dentalofficer">
-                    Examination by Medical & Dental Officer
-                </button>
-            </h2>
-            <div id="collapseExamination_by_medical_dentalofficer" class="accordion-collapse collapse show" data-bs-parent="#careCollabAccordion">
-                <div class="accordion-body">
-                    <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Procedure</th>
-                                <th>Notes</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Display examination data from DB here -->
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-
-       
-        </div>
-
-              <!-- Section: Postnatal Collaboration -->
-       <div class="tab-pane fade show active" id="mother_info" role="tabpanel">
-    <h4></h4>
-   <!-- Accordion for Risk Assessment and Checklist -->
-   <div class="accordion" id="riskAssessmentChecklistAccordion">
-        <!-- Hospital Admission Record Accordion -->
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button custom-pink" type="button" data-bs-toggle="collapse" data-bs-target="#collapseHospitalAddmissionRecord">
-           
-                Hospital Admission Record
-                </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#motherInfoAccordion">
-                <div class="accordion-body">
-                <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Topic</th>
-                                <th>Feedback</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Display education data here -->
-                        </tbody>
-                    </table>
-
-                    </div>
-            </div>
-        </div>
-        </div>
-
-         <!-- Discharge Note -->
-       <div class="tab-pane fade show active" id="mother_info" role="tabpanel">
-    <h4></h4>
-   <!-- Accordion for Risk Assessment and Checklist -->
-   <div class="accordion" id="riskAssessmentChecklistAccordion">
-        <!-- Discharge Note Accordion -->
-        <div class="accordion-item">
-            <h2 class="accordion-header" id="headingOne">
-            <button class="accordion-button custom-pink" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExamination_by_medical_dentalofficer">
-
-                Discharge Note
-                </button>
-            </h2>
-            <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#motherInfoAccordion">
-                <div class="accordion-body">
-                <table class="table table-bordered">
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Topic</th>
-                                <th>Feedback</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <!-- Display education data here -->
-                        </tbody>
-                    </table>
-
-                    </div>
-            </div>
-        </div>
-        </div>
-                    <form action="patient.php" method="POST">
-       
-
-                    
-</main>
+    </div>
 </div>
- </body>     
+
+  </main>
+</div>
+
+
+
+<?php include('../includes/navbar.php'); ?>
+<?php include('../includes/scripts.php'); ?>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
 
 </html>

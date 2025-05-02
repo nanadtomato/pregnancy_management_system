@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 // Retrieve session variables
 $userFirstName = $_SESSION['userFirstName'] ?? 'Guest';
@@ -29,8 +28,8 @@ $userStatus = $_SESSION['userStatus'] ?? 0; // Default to '0' if not set
                 <!-- Doctor -->
                 <li><a href="doctor_dashboard.php"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
                 <li><a href="doctor_manage_patient.php"><i class="fas fa-user-md"></i> <span>Patient Management</span></a></li>
-                <li><a href="doctor_manage_health_record_patient.php"><i class="fas fa-notes-medical"></i> <span>Health Records</span></a></li>
-                <li><a href="doctor_manage_carecollaboration_record_patient.php"><i class="fas fa-hand-holding-medical"></i> <span>Care Collaboration</span></a></li>
+                <li><a href="doctorNurse_manage_health_record_patient.php"><i class="fas fa-notes-medical"></i> <span>Health Records</span></a></li>
+                <li><a href="doctorNurse_manage_carecollaboration_record_patient.php"><i class="fas fa-hand-holding-medical"></i> <span>Care Collaboration</span></a></li>
                 <li><a href="doctor_manage_appointment.php"><i class="fas fa-calendar-alt"></i> <span>Appointment</span></a></li>
                 <li><a href="report.php"><i class="fas fa-file-alt"></i> <span>Report</span></a></li>
 
@@ -38,7 +37,9 @@ $userStatus = $_SESSION['userStatus'] ?? 0; // Default to '0' if not set
                 <!-- Nurse -->
                 <li><a href="nurse_dashboard.php"><i class="fas fa-tachometer-alt"></i> <span>Dashboard</span></a></li>
                 <li><a href="patient.php"><i class="fas fa-user-md"></i> <span>Patient Management</span></a></li>
-                <li><a href="appointment.php"><i class="fas fa-calendar-alt"></i> <span>Appointment</span></a></li>
+                <li><a href="doctorNurse_manage_health_record_patient.php"><i class="fas fa-notes-medical"></i> <span>Health Records</span></a></li>
+                <li><a href="doctorNurse_manage_carecollaboration_record_patient.php"><i class="fas fa-hand-holding-medical"></i> <span>Care Collaboration</span></a></li>
+                <li><a href="nurse_manage_appointment.php"><i class="fas fa-calendar-alt"></i> <span>Appointment</span></a></li>
                 <li><a href="report.php"><i class="fas fa-file-alt"></i> <span>Report</span></a></li>
 
             <?php elseif ($userStatus == 4): ?>

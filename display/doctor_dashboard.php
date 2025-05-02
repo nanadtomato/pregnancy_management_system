@@ -47,11 +47,9 @@ $totalPatients = $totalPatientsQuery->fetch_assoc()['total'];
 
 </head>
 <body>
-<?php include('../includes/navbar.php'); ?>
-
-
-<main> 
-        <h2 class="text-center mb-4">Welcome, Dr. <?php echo htmlspecialchars($userFirstName); ?></h2>
+ <div class="main-content">
+ <main>
+ <h2 class="text-center mb-4">Welcome, Dr. <?php echo htmlspecialchars($userFirstName); ?></h2>
 <!-- Stats Cards -->
 <div class="row g-4 mb-4">
             <div class="col-md-6">
@@ -63,7 +61,6 @@ $totalPatients = $totalPatientsQuery->fetch_assoc()['total'];
                     </div>
                 </div>
             </div>
-
             <div class="col-md-6">
             <div class="card card-custom shadow-sm" style="width: 18rem;">
                     <div class="card-body">
@@ -73,7 +70,6 @@ $totalPatients = $totalPatientsQuery->fetch_assoc()['total'];
                 </div>
             </div>
         </div>
-
         <!-- Patient Status Table -->
         <div class="card shadow-sm">
             
@@ -89,25 +85,17 @@ $totalPatients = $totalPatientsQuery->fetch_assoc()['total'];
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- <?php while ($row = $patientStatusQuery->fetch_assoc()): ?>
-                            <tr>
-                                <td><?php echo htmlspecialchars($row['full_name']); ?></td>
-                                <td><?php echo htmlspecialchars(ucfirst($row['status'])); ?></td>
-                                <td><?php echo date("d M Y", strtotime($row['appointment_date'])); ?></td>
-                            </tr>
-                        <?php endwhile; ?> -->
-                    </tbody>
-                </table>
-            </div>
-            </main>
+
+
+  </main>
+</div>
 
 
 
-       
+<?php include('../includes/navbar.php'); ?>
+<?php include('../includes/scripts.php'); ?>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <?php include('../includes/scripts.php'); ?>
-</body>
-    
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>     
 
 </html>
