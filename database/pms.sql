@@ -13,7 +13,8 @@ CREATE TABLE users (
     date_of_birth DATE,
     identification_number VARCHAR(50),
     role_id INT NOT NULL, -- 1: Patient, 2: Doctor, 3: Nurse, 4: Admin
-    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    is_approved TINYINT DEFAULT 0
 );
 
 -- Patient-Specific Data
@@ -117,3 +118,23 @@ CREATE TABLE family_health_history (
     family_conditions TEXT,
     immunisation_status TEXT
 );
+
+CREATE TABLE blood_collection_consent (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    patient_id INT NOT NULL,
+    blood_group_rhesus BOOLEAN DEFAULT FALSE,
+    hemoglobin BOOLEAN DEFAULT FALSE,
+    diabetes BOOLEAN DEFAULT FALSE,
+    syphilis BOOLEAN DEFAULT FALSE,
+    hiv BOOLEAN DEFAULT FALSE,
+    hepatitis_b BOOLEAN DEFAULT FALSE,
+    malaria BOOLEAN DEFAULT FALSE,
+    other_tests TEXT,
+    mother_signature VARCHAR(255),
+    witness_signature VARCHAR(255),
+    witness_name VARCHAR(255),
+    witness_nric VARCHAR(255),
+    consent_date DATE,
+    FOREIGN KEY (patient_id) REFERENCES users(id)
+);
+

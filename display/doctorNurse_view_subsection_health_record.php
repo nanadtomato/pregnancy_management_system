@@ -27,6 +27,13 @@ switch ($section) {
         // Fetch data from the 'family_health_history' table
         $query = "SELECT * FROM family_health_history WHERE patient_id = ?";
         break;
+    case 'blood_collection_consent':
+        $query = "SELECT * FROM blood_collection_consent WHERE patient_id = ?";
+        break;
+    case 'blood_consent':
+        $query = "SELECT * FROM antenatal_blood_consent WHERE patient_id = ?";
+        break;
+    
     default:
         die("Unknown section");
 }
@@ -57,6 +64,21 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             $stmt_update->bind_param("iis", $patient_id, $year, $outcome);
             $stmt_update->execute();
             break;
+        case 'blood_collection_consent':
+                $query = "SELECT * FROM blood_collection_consent WHERE patient_id = ?";
+                break;
+            
+    
+            }
+        
+            // Refresh result after insert
+            $stmt = $conn->prepare($query);
+            $stmt->bind_param("i", $patient_id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+        
+         
+            
         // Add more cases for other subsections like 'family_health_history'
     }
 
@@ -65,14 +87,14 @@ $stmt = $conn->prepare($query);
 $stmt->bind_param("i", $patient_id);
 $stmt->execute();
 $result = $stmt->get_result();
-}
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<link rel="stylesheet" href="../css/mainStyles.css">
+<link rel="stylesheet" href="../css/mainStyles.css?v=<?= time() ?>">
 <title>Report</title>
 
 <style>
@@ -116,6 +138,27 @@ $result = $stmt->get_result();
                     } elseif ($section == 'family_health_history') {
                         echo '<th>Menstruation Days</th><th>Cycle</th><th>Family Planning</th><th>Smoking (Mother)</th><th>Smoking (Husband)</th><th>action</th>';
                     }
+                    elseif ($section == 'blood_collection_consent') {
+                        echo "<td>" . htmlspecialchars($row['name']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['nric']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['blood']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['hb']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['diabetes']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['syphilis']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['hiv']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['hepatitis']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['malaria']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['others']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['others_text']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['mother_signature']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['witness_signature']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['witness_name']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['witness_nric']) . "</td>";
+                        echo "<td>" . htmlspecialchars($row['date_signed']) . "</td>";
+                                        }
+
+
+                    
                     ?>
                 </tr>
             </thead>
@@ -140,7 +183,15 @@ $result = $stmt->get_result();
                             echo "<td>" . htmlspecialchars($row['family_planning_method']) . "</td>";
                             echo "<td>" . ($row['smoking_mother'] ? 'Yes' : 'No') . "</td>";
                             echo "<td>" . ($row['smoking_husband'] ? 'Yes' : 'No') . "</td>";
-                        }
+                        
+                    }
+                    
+
+
+
+
+                        
+                        
                         ?>
                          <td>
                             <!-- Edit Button -->

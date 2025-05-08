@@ -92,7 +92,7 @@ $section = $_GET['section'] ?? 'patient_info'; // Default to 'patient_info'
                     <td><a href="doctorNurse_edit_subsection_health_record.php?patient_id=<?= $patient_id ?>&section=blood_collection_consent" class="btn btn-link">4.Blood Collection Consent</a></td>
                 </tr>
                 <tr>
-                    <td><a href="doctorNurse_edit_subsection_health_record.php?patient_id=<?= $patient_id ?>&section=cnsent_declaration" class="btn btn-link">5. Consent Declaration</a></td>
+                    <td><a href="doctorNurse_edit_subsection_health_record.php?patient_id=<?= $patient_id ?>&section=consent_declaration" class="btn btn-link">5. Consent Declaration</a></td>
                 </tr>
                 <tr>
                     <td><a href="doctorNurse_edit_subsection_health_record.php?patient_id=<?= $patient_id ?>&section=refusal_of_treatment" class="btn btn-link">6.Refusal of Treatment</a></td>

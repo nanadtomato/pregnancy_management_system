@@ -25,14 +25,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
     } elseif (empty($email) || empty($password)) {
         $error = "All fields are required.";
     } else {
-        $stmt = $conn->prepare("SELECT id, name, password FROM users WHERE email = ? AND role_id = ?");
+        $stmt = $conn->prepare("SELECT id, name, password, is_approved FROM users WHERE email = ? AND role_id = ?");
         $stmt->bind_param("si", $email, $role_id);
         $stmt->execute();
         $stmt->store_result();
 
         if ($stmt->num_rows > 0) {
-            $stmt->bind_result($id, $name, $hashed_password);
+            $stmt->bind_result($id, $name, $hashed_password, $is_approved);
             $stmt->fetch();
+
+            if (!$is_approved) {
+                $_SESSION['error_message'] = "Your account is pending admin approval.";
+                header("Location: login.php");
+                exit();
+            }
+            
 
             if (password_verify($password, $hashed_password)) {
                 $_SESSION['user_id'] = $id;

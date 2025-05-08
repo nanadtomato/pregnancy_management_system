@@ -66,23 +66,38 @@ if ($patient_data && $patient_data['last_menstrual_date']) {
 <body>
  <div class="main-content">
  <main>
+ <h2 class="text-center mb-5">Welcome, <?= htmlspecialchars($userFirstName) ?>! </h2>
 
   <!-- Due Date and Progress -->
   <div class="card mb-4">
   <div class="card-header bg-danger-subtle text-dark">Expected Due Date</div>
-    <div class="card-body">
-      <?php if ($due_date): ?>
-        <h5>Due in <?= $days_left ?> days (<?= $due_date->format('jS M Y') ?>)</h5>
-        <div class="progress mt-3">
-          <div class="progress-bar" role="progressbar" style="width: <?= $pregnancy_progress ?>%;" aria-valuenow="<?= $pregnancy_progress ?>" aria-valuemin="0" aria-valuemax="100">
-            <?= $pregnancy_progress ?>%
-          </div>
+  <div class="card-body">
+    <?php if ($due_date): ?>
+      <h5>Due in <?= $days_left ?> days (<?= $due_date->format('jS M Y') ?>)</h5>
+
+      <div class="position-relative mb-1">
+        <div class="progress mt-3" style="height: 25px; ">
+        <div class="progress-bar" role="progressbar"
+     style="width: <?= $pregnancy_progress ?>%; background-color: #d81b60;"
+     aria-valuenow="<?= $pregnancy_progress ?>" aria-valuemin="0" aria-valuemax="100">
+  <?= $pregnancy_progress ?>%
+</div>
+
         </div>
-      <?php else: ?>
-        <p>Please update your Last Menstrual Period (LMP) to see due date and progress.</p>
-      <?php endif; ?>
-    </div>
+
+        <!-- Trimester Labels -->
+        <div class="trimester-labels d-flex justify-content-between mt-1">
+          <span class="small">1st Trimester</span>
+          <span class="small">2nd Trimester</span>
+          <span class="small">3rd Trimester</span>
+        </div>
+      </div>
+
+    <?php else: ?>
+      <p>Please update your Last Menstrual Period (LMP) to see due date and progress.</p>
+    <?php endif; ?>
   </div>
+</div>
 
   <!-- Profile Info -->
   <div class="card mb-4">
@@ -95,7 +110,10 @@ if ($patient_data && $patient_data['last_menstrual_date']) {
       <p><strong>Address:</strong> <?= $user_data['address'] ?></p>
       <p><strong>Date of Birth:</strong> <?= $user_data['date_of_birth'] ?></p>
       <p><strong>Identification Number:</strong> <?= $user_data['identification_number'] ?></p>
-      <a href="patient_update_profile.php" class="btn btn-outline-primary">Update Profile / LMP</a>
+      <div class="d-flex justify-content-end mt-3">
+  <a href="patient_update_profile.php" class="btn btn-pink">Update Profile / LMP</a>
+</div>
+
     </div>
   </div>
 
@@ -104,7 +122,7 @@ if ($patient_data && $patient_data['last_menstrual_date']) {
   <div class="card-header bg-danger-subtle text-dark">Upcoming Appointments</div>
   <div class="card-body"></div>
   </div>
-  </div>
+  
 
   
 

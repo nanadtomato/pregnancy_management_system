@@ -190,11 +190,28 @@ header h2 {
     margin: 0;
 }
 
+#nav-toggle {
+    display: none;
+}
+
 .hamburger-label {
     cursor: pointer;
-    display: flex;
-    align-items: center;
-    font-size: 1.5rem; /* Slightly smaller hamburger icon */
+    font-size: 24px;
+    padding: 10px;
+    color: #333;
+    z-index: 1001;
+}
+
+
+
+/* When checkbox is checked, show the sidebar */
+#nav-toggle:checked ~ .sidebar {
+    transform: translateX(0);
+}
+
+/* Optional: hide checkbox */
+#nav-toggle {
+    display: none;
 }
 
 .header-right {
@@ -373,6 +390,8 @@ header.collapsed {
     width: calc(100% - 80px);
 }
 
+
+
 /* Hide sidebar text when collapsed */
 .sidebar.collapsed .sidebar-menu a span.linksname {
     display: none;
@@ -422,3 +441,106 @@ a {
         .btn-link:hover {
             color: #c2185b;
         }
+        
+        .btn-pink {
+            background-color: #f78da7;
+            color: white;
+            border: none;
+        }
+        
+        .btn-pink:hover {
+            background-color: #f55d83;
+            color: white;
+        }
+
+        .btn-link {
+            color: #d81b60;
+        }
+        .btn-link:hover {
+            color: #c2185b;
+        }
+        h2 { color: #d81b60; }
+        .table th { background-color: #f8bbd0; color: #880e4f; }
+        .card-custom { border-left: 5px solid #f78da7; background-color: #fff0f4; }
+
+        h2 {
+            color: #d81b60;
+        }
+         .table th {
+            background-color: #f8d7da;
+            color: #880e4f;
+        }
+        .btn-link { color: #ec407a; text-decoration: none; }
+        .btn-link:hover { color: #d81b60; text-decoration: underline; }
+
+         
+        .bg-pink { background-color: #f78da7; }
+        .btn-pink { background-color: #f78da7; color: white; }
+
+        .btn-pink {
+    background-color: #f78da7;
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+.btn-pink:hover {
+    background-color: #f55d83;
+}
+.sidebar-brand h2 {
+
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: #ffffff;
+}
+
+.sidebar-brand i {
+    font-size: 1.8rem;
+    margin-bottom: 0px
+}
+
+/* Hide brand name when collapsed */
+.sidebar.collapsed .sidebar-brand .brandname {
+    display: none;
+}
+
+/* Optional: center icon when brand name is hidden */
+.sidebar.collapsed .sidebar-brand i {
+    margin: 0;
+}
+
+.trimester-labels {
+  padding: 0 0.25rem;
+  color: #6c757d;
+  font-weight: 500;
+  font-size: 0.85rem;
+}
+
+.btn-rounded {
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+}
+
+.logout-icon {
+    margin-left: 15px;
+    color: #f44336;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+.logout-icon:hover {
+    color: #d32f2f;
+}
+.user-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+

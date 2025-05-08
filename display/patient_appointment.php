@@ -19,20 +19,45 @@ $userFirstName = $_SESSION['name'];
 <link rel="stylesheet" href="../css/mainStyles.css">
 <title>Appointment</title>
 </head>
- <!-- <?php include('../includes/navbar.php'); ?> -->
+ 
 
  <body>
  <div class="main-content">
  <main>
-
+  <!-- Section 1: Upcoming Appointment Confirmation -->
+ <div class="card mb-4">
+  <div class="card-header bg-danger-subtle text-dark">Your Upcoming Appointment</div>
+    <div class="card-body">
+ 
+       
     </div>
-</div>
+  </div>
 
-  </main>
-</div>
+  <div class="card mb-4">
+  <div class="card-header bg-danger-subtle text-dark">Request New Appointment</div>
+    <div class="card-body">
+    <form action="request_appointment.php" method="post">
+                <div class="mb-3">
+                    <label for="preferred_date" class="form-label">Preferred Date</label>
+                    <input type="date" class="form-control" name="preferred_date" required>
+                </div>
+                <div class="mb-3">
+                    <label for="preferred_time" class="form-label">Preferred Time</label>
+                    <input type="time" class="form-control" name="preferred_time" required>
+                </div>
+                <div class="mb-3">
+                    <label for="reason" class="form-label">Reason for Request</label>
+                    <textarea class="form-control" name="reason" rows="3" placeholder="e.g., not available on scheduled day"></textarea>
+                </div>
+                <button type="submit" class="btn-pink"">Submit Request</button>
+            </form>
+        </div>
+       
+    </div>
+  </div>
 
-
-
+    </main>
+    </div>
 <?php include('../includes/navbar.php'); ?>
 <?php include('../includes/scripts.php'); ?>
 

@@ -16,17 +16,18 @@ $userFirstName = $_SESSION['name'];
 <!-- <?php include('../includes/header.php'); ?> -->
 <head>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-<link rel="stylesheet" href="../css/mainStyles.css">
+<link rel="stylesheet" href="../css/mainStyles.css?v=<?= time() ?>">
 <title>Report</title>
 </head>
- <!-- <?php include('../includes/navbar.php'); ?> -->
+
 
  <body>
  <div class="main-content">
  <main>
+ <h2 class="text-center mb-5">Patient Health & Care Collaboration Report</h2>
+ <button class="btn-pink" onclick="window.print()">Print Report</button>
 
-    </div>
-</div>
+ 
 
   </main>
 </div>

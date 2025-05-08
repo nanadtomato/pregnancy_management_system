@@ -155,6 +155,30 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
             
             break;
+
+            case 'family_health_history':
+                $patient_id = $_POST['patient_id'];
+                $diabetes = $_POST['diabetes'];
+                $hypertension = $_POST['hypertension'];
+                $heart_disease = $_POST['heart_disease'];
+                $genetic_disorder = $_POST['genetic_disorder'];
+                $others = $_POST['others'];
+            
+                $query_insert = "INSERT INTO family_health_history 
+                (patient_id, diabetes, hypertension, heart_disease, genetic_disorder, others) 
+                VALUES (?, ?, ?, ?, ?, ?)";
+            
+                $stmt_insert = $conn->prepare($query_insert);
+                $stmt_insert->bind_param("isssss", $patient_id, $diabetes, $hypertension, $heart_disease, $genetic_disorder, $others);
+            
+                if ($stmt_insert->execute()) {
+                    $success_message = "Family health history added successfully!";
+                } else {
+                    $error_message = "Error adding family health history: " . $stmt_insert->error;
+                }
+            
+                break;
+               
         // Add more cases for other subsections like 'family_health_history'
     }
     // Redirect or display success/error message
@@ -381,6 +405,48 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         <button type="submit" class="btn btn-pink">Add Pregnancy History</button>
     </form>
+
+    <?php elseif ($section == 'family_health_history'): ?>
+    <?php if (isset($_SESSION['success_message'])): ?>
+        <div class="alert alert-success"><?= $_SESSION['success_message']; unset($_SESSION['success_message']); ?></div>
+    <?php endif; ?>
+
+    <?php if (isset($_SESSION['error_message'])): ?>
+        <div class="alert alert-danger"><?= $_SESSION['error_message']; unset($_SESSION['error_message']); ?></div>
+    <?php endif; ?>
+
+    <form action="doctorNurse_edit_subsection_health_record.php?patient_id=<?= $patient_id ?>&section=<?= $section ?>&record_id=<?= $record_id ?>" method="POST">
+        <input type="hidden" name="patient_id" value="<?= $patient_id ?>">
+
+        <div class="mb-3">
+            <label for="diabetes" class="form-label">Diabetes</label>
+            <input type="text" name="diabetes" class="form-control" value="<?= $data['diabetes'] ?? '' ?>">
+        </div>
+
+        <div class="mb-3">
+            <label for="hypertension" class="form-label">Hypertension</label>
+            <input type="text" name="hypertension" class="form-control" value="<?= $data['hypertension'] ?? '' ?>">
+        </div>
+
+        <div class="mb-3">
+            <label for="heart_disease" class="form-label">Heart Disease</label>
+            <input type="text" name="heart_disease" class="form-control" value="<?= $data['heart_disease'] ?? '' ?>">
+        </div>
+
+        <div class="mb-3">
+            <label for="genetic_disorder" class="form-label">Genetic Disorder</label>
+            <input type="text" name="genetic_disorder" class="form-control" value="<?= $data['genetic_disorder'] ?? '' ?>">
+        </div>
+
+        <div class="mb-3">
+            <label for="others" class="form-label">Other Conditions</label>
+            <input type="text" name="others" class="form-control" value="<?= $data['others'] ?? '' ?>">
+        </div>
+
+        <button type="submit" class="btn btn-pink">Save</button>
+    </form>
+
+
 <?php endif; ?>
 </div>
 
