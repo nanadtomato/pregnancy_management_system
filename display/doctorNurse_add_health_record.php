@@ -70,72 +70,73 @@ $section = $_GET['section'] ?? 'patient_info'; // Default to 'patient_info'
                 <!-- Patient Information Section -->
                 <tr>
                 <td rowspan="3"> Patient Information</td>
-                        <td><a href="doctorNurse_view_basic_info.php?user_id=<?= $user_id ?>" class="btn btn-link">1. Basic Information</a></td>
+                        <td><a href="doctorNurse_add_basic_info.php?user_id=<?= $user_id ?>" class="btn btn-link">1. Basic Information</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_past_pregnancyHistory.php?user_id=<?= $user_id ?>" class="btn btn-link">2. Past Pregnancy History</a></td>
+                    <td><a href="doctorNurse_add_past_pregnancyHistory.php?user_id=<?= $user_id ?>" class="btn btn-link">2. Past Pregnancy History</a></td>
+
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_family_health_history.php?user_id=<?= $user_id ?>" class="btn btn-link">3. Family Health History</a></td>
+                        <td><a href="doctorNurse_add_family_health_history.php?user_id=<?= $user_id ?>" class="btn btn-link">3. Family Health History</a></td>
                     </tr>
                 
                 
                 <!-- Consent & Approval Section -->
                 <tr>
                    <td rowspan="3">Consent & Approval</td>
-                        <td><a href="doctorNurse_view_blood_collection_consent.php?user_id=<?= $user_id ?>" class="btn btn-link">4. Blood Collection Consent</a></td>
+                        <td><a href="doctorNurse_add_blood_collection_consent.php?user_id=<?= $user_id ?>" class="btn btn-link">4. Blood Collection Consent</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_consent_declaration.php?user_id=<?= $user_id ?>=" class="btn btn-link">5. Consent Declaration</a></td>
+                        <td><a href="doctorNurse_add_consent_declaration.php?user_id=<?= $user_id ?>" class="btn btn-link">5. Consent Declaration</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_refusal_of_treatment.php?user_id=<?= $user_id ?>" class="btn btn-link">6. Refusal of Treatment</a></td>
+                        <td><a href="doctorNurse_add_refusal_of_treatment.php?user_id=<?= $user_id ?>" class="btn btn-link">6. Refusal of Treatment</a></td>
                     </tr>
 
                 <!-- Health Monitoring Section -->
                 <tr>
                 <td rowspan="10">Health Monitoring</td>
-                        <td><a href="doctorNurse_view_checklist_ogtt_screening_criteria.php?user_id=<?= $user_id ?>" class="btn btn-link">7. Checklist OGTT Screening Criteria</a></td>
+                        <td><a href="doctorNurse_add_subsection_health_record.php?user_id=<?= $user_id ?>&section=checklist_ogtt_screening_criteria" class="btn btn-link">7. Checklist OGTT Screening Criteria</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_ogtt_result.php?user_id=<?= $user_id ?>" class="btn btn-link">8. OGTT Result</a></td>
+                        <td><a href="doctorNurse_add_subsection_health_record.php?user_id=<?= $user_id ?>&section=ogtt_result" class="btn btn-link">8. OGTT Result</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_HbA1c_result.php?user_id=<?= $user_id ?>" class="btn btn-link">9. HbA1c Result</a></td>
+                        <td><a href="doctorNurse_edit_subsection_health_record.php?user_id=<?= $user_id ?>&section=HbA1c_result" class="btn btn-link">9. HbA1c Result</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_blood_sugar.php?user_id=<?= $user_id ?>" class="btn btn-link">10. Blood Sugar Monitoring</a></td>
+                        <td><a href="doctorNurse_add_subsection_health_record.php?user_id=<?= $user_id ?>&section=blood_sugar" class="btn btn-link">10. Blood Sugar Monitoring</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_subsection_health_record.php?user_id=<?= $user_id ?>&section=blood_pressure" class="btn btn-link">11. Blood Pressure Monitoring</a></td>
+                        <td><a href="doctorNurse_add_subsection_health_record.php?user_id=<?= $user_id ?>&section=blood_pressure" class="btn btn-link">11. Blood Pressure Monitoring</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_subsection_health_record.php?user_id=<?= $user_id ?>&section=preeclampsia_monitoring" class="btn btn-link">12. Pre-Eclampsia Profile Monitoring</a></td>
+                        <td><a href="doctorNurse_edit_subsection_health_record.php?user_id=<?= $user_id ?>&section=preeclampsia_monitoring" class="btn btn-link">12. Pre-Eclampsia Profile Monitoring</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_subsection_health_record.php?user_id=<?= $user_id ?>&section=weight_monitoring" class="btn btn-link">13. Weight Monitoring</a></td>
+                        <td><a href="doctorNurse_add_subsection_health_record.php?user_id=<?= $user_id ?>&section=weight_monitoring" class="btn btn-link">13. Weight Monitoring</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_subsection_health_record.php?user_id=<?= $user_id ?>&section=hemoglobin_monitoring" class="btn btn-link">14. Hemoglobin Monitoring</a></td>
+                        <td><a href="doctorNurse_add_subsection_health_record.php?user_id=<?= $user_id ?>&section=hemoglobin_monitoring" class="btn btn-link">14. Hemoglobin Monitoring</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_subsection_health_record.php?user_id=<?= $user_id ?>&section=ultrasound_results" class="btn btn-link">15. Ultrasound Results</a></td>
+                        <td><a href="doctorNurse_add_subsection_health_record.php?user_id=<?= $user_id ?>&section=ultrasound_results" class="btn btn-link">15. Ultrasound Results</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_subsection_health_record.php?user_id=<?= $user_id ?>&section=current_pregnancy_examination" class="btn btn-link">16. Current Pregnancy Examination</a></td>
+                        <td><a href="doctorNurse_add_subsection_health_record.php?user_id=<?= $user_id ?>&section=current_pregnancy_examination" class="btn btn-link">16. Current Pregnancy Examination</a></td>
                     </tr>
 
 
                 <!-- Postnatal Care Section -->
                 <tr>
                 <td rowspan="3">Postnatal Care</td>
-                        <td><a href="doctorNurse_view_subsection_health_record.php?user_id=<?= $user_id ?>&section=postnatal_home_visits" class="btn btn-link">17. Postnatal Home Visits</a></td>
+                        <td><a href="doctorNurse_edit_subsection_health_record.php?user_id=<?= $user_id ?>&section=postnatal_home_visits" class="btn btn-link">17. Postnatal Home Visits</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_subsection_health_record.php?user_id=<?= $user_id ?>&section=postnatal_issues_management" class="btn btn-link">18. Postnatal Issues & Management</a></td>
+                        <td><a href="doctorNurse_edit_subsection_health_record.php?user_id=<?= $user_id ?>&section=postnatal_issues_management" class="btn btn-link">18. Postnatal Issues & Management</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_subsection_health_record.php?user_id=<?= $user_id ?>&section=thromboprophylaxis_injection_schedule" class="btn btn-link">19. Thromboprophylaxis Injection</a></td>
+                        <td><a href="doctorNurse_edit_subsection_health_record.php?user_id=<?= $user_id ?>&section=thromboprophylaxis_injection_schedule" class="btn btn-link">19. Thromboprophylaxis Injection</a></td>
                     </tr>
             </tbody>
         </table>

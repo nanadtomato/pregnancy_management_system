@@ -15,7 +15,6 @@ $section = $_GET['section']; // section like 'basic_info', 'past_pregnancy_histo
 $record_id = isset($_GET['record_id']) ? $_GET['record_id'] : null;
 
 
-
 if ($record_id !== null) {
     // Fetch the relevant data based on the section
     switch ($section) {
@@ -41,12 +40,10 @@ if ($record_id !== null) {
     if ($result->num_rows > 0) {
         $data = $result->fetch_assoc(); // Fetch the specific record data for editing
     } else {
-        die("Record not found");
+        // For new entries, we skip fetching
+        $data = []; // or set defaults
     }
-} else {
-    // For new entries, we skip fetching
-    $data = []; // or set defaults
-}
+} // Close the if block for $record_id !== null
 
 
 
@@ -93,38 +90,39 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
            $postnatal_address_3 = $_POST['postnatal_address_3'];
           $risk_factors = $_POST['risk_factors'];
             
-            $query_update = "UPDATE mother_information SET 
-            registration_number = ?, id_card_number = ?, date_of_birth = ?, age = ?, clinic_phone_number = ?,
-            jkn_serial_number = ?, antenatal_color_code = ?, ethnic_group = ?, nationality = ?, education_level = ?,
-            occupation = ?, home_address_1 = ?, home_address_2 = ?, phone_residential = ?, phone_mobile = ?,
-            phone_office = ?, nurse_ym = ?, workplace_address = ?, estimated_due_date = ?, revised_due_date = ?,
-            gravida = ?, para = ?, husband_name = ?, husband_id_card_number = ?, husband_occupation = ?,
-            husband_workplace_address = ?, husband_phone_residential = ?, husband_phone_mobile = ?,
-            postnatal_address_1 = ?, postnatal_address_2 = ?, postnatal_address_3 = ?, risk_factors = ?
-            WHERE patient_id = ?";
+           // Update query
+          $query_update = "UPDATE mother_information SET 
+          registration_number = ?, id_card_number = ?, date_of_birth = ?, age = ?, clinic_phone_number = ?,
+          jkn_serial_number = ?, antenatal_color_code = ?, ethnic_group = ?, nationality = ?, education_level = ?,
+          occupation = ?, home_address_1 = ?, home_address_2 = ?, phone_residential = ?, phone_mobile = ?,
+          phone_office = ?, nurse_ym = ?, workplace_address = ?, estimated_due_date = ?, revised_due_date = ?,
+          gravida = ?, para = ?, husband_name = ?, husband_id_card_number = ?, husband_occupation = ?,
+          husband_workplace_address = ?, husband_phone_residential = ?, husband_phone_mobile = ?,
+          postnatal_address_1 = ?, postnatal_address_2 = ?, postnatal_address_3 = ?, risk_factors = ?
+          WHERE patient_id = ?";
+  
+      $stmt_update = $conn->prepare($query_update);
+      $stmt_update->bind_param("sssissssssssssssssssiisssssssssssi",
+          $registration_number, $id_card_number, $date_of_birth, $age, $clinic_phone_number,
+          $jkn_serial_number, $antenatal_color_code, $ethnic_group, $nationality, $education_level,
+          $occupation, $home_address_1, $home_address_2, $phone_residential, $phone_mobile,
+          $phone_office, $nurse_ym, $workplace_address, $estimated_due_date, $revised_due_date,
+          $gravida, $para, $husband_name, $husband_id_card_number, $husband_occupation,
+          $husband_workplace_address, $husband_phone_residential, $husband_phone_mobile,
+          $postnatal_address_1, $postnatal_address_2, $postnatal_address_3, $risk_factors,
+          $patient_id
+      );
+  
+      if ($stmt_update->execute()) {
+          $success_message = "Data updated successfully!";
+      } else {
+          $error_message = "Error updating data: " . $stmt_update->error;
+      }
+    
+      break;
+      
 
-            $stmt_update = $conn->prepare($query_update);
-            $stmt_update->bind_param("sssissssssssssssssssiisssssssssssi",
-            $registration_number, $id_card_number, $date_of_birth, $age, $clinic_phone_number,
-            $jkn_serial_number, $antenatal_color_code, $ethnic_group, $nationality, $education_level,
-            $occupation, $home_address_1, $home_address_2, $phone_residential, $phone_mobile,
-            $phone_office, $nurse_ym, $workplace_address, $estimated_due_date, $revised_due_date,
-            $gravida, $para, $husband_name, $husband_id_card_number, $husband_occupation,
-            $husband_workplace_address, $husband_phone_residential, $husband_phone_mobile,
-            $postnatal_address_1, $postnatal_address_2, $postnatal_address_3, $risk_factors,
-            $patient_id
-            );
-           
-            if ($stmt_update->execute()) {
-                $success_message = "Data updated successfully!";
-            } else {
-                $error_message = "Error updating data: " . $stmt_update->error;
-            };
-
-
-            break;
-
-            case 'past_pregnancy_history':
+     case 'past_pregnancy_history':
                 $patient_id = $_POST['patient_id'];
                 $year = $_POST['year'];
                 $outcome = $_POST['outcome'];
@@ -361,7 +359,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         <textarea name="risk_factors" class="form-control"><?= $data['risk_factors'] ?? '' ?></textarea>
     </div>
 
-        <button type="submit" class="btn btn-pink">Save Changes</button>
+        <button type="submit" class="btn btn-pink">Add</button>
     </form>
 
 <?php elseif ($section == 'past_pregnancy_history'): ?>

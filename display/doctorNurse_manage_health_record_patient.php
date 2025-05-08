@@ -12,7 +12,7 @@ if (!isset($_SESSION['role_id']) || !in_array($_SESSION['role_id'], [2, 3])) {
 $roleName = ($_SESSION['role_id'] == 2) ? "Doctor" : "Nurse";
 echo "<h2 class='mb-4'>{$roleName} - Patient Health Record Management</h2>";
 
-$userFirstName = $_SESSION['name'];
+
 
 // Fetch patients
 $sql = "SELECT users.id, users.name, users.phone, users.date_of_birth, users.identification_number, patients.last_menstrual_date 
@@ -62,8 +62,8 @@ $result = $conn->query($sql);
                     <td><?= htmlspecialchars($row['last_menstrual_date']) ?></td>
                     <td>
                         <a href="doctorNurse_view_health_record.php?user_id=<?= $row['id'] ?>" class="btn btn-primary btn-sm">View</a>
-                        <a href="doctorNurse_edit_health_record.php?user_id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Add</a>
-                        <a href="doctor_delete_health_record.php?user_id=<?= $row['id'] ?>" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?');">Delete</a>
+                        <a href="doctorNurse_add_health_record.php?user_id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Add</a>
+                       
                     </td>
                 </tr>
             <?php endwhile; ?>

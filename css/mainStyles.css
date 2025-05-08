@@ -544,3 +544,54 @@ a {
     gap: 10px;
 }
 
+.btn-link {
+            color: #d81b60;
+        }
+        .btn-link:hover {
+            color: #c2185b;
+        }
+        .card {
+            border-color: #f8bbd0;
+            margin-bottom: 20px;
+        }
+
+        .card-header {
+            background-color: #fce4ec;
+            color: #880e4f;
+            font-weight: 600;
+        }
+
+        .card-body div {
+            margin-bottom: 10px;
+        }
+
+        strong {
+            color: #ad1457;
+        }
+
+        .btn-warning {
+            background-color: #f06292;
+            border: none;
+        }
+
+        .btn-warning:hover {
+            background-color: #ec407a;
+        }
+
+        .card-body ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .table-responsive {
+            margin-top: 20px;
+        }
+
+        ul.custom-bullet li::before {
+            content: "●";
+            color: #d81b60; /* Soft pink */
+            font-weight: bold;
+            display: inline-block;
+            width: 1.2em;
+            margin-left: 1.2em;
+        }

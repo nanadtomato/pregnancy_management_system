@@ -70,6 +70,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['submit'])) {
                         if (!$stmt2->execute()) {
                             die("Error inserting into patients: " . $stmt2->error);
                         }
+
+                        
+                      
                         break;
 
                     case 2: // Doctor

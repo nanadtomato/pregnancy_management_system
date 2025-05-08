@@ -43,56 +43,57 @@ $userFirstName = $_SESSION['name'];
     <tbody>
         <!-- Patient Information -->
         <tr><td rowspan="3">Patient Information</td>
-            <td><a href="patient_health_record_detail_patientinfo.php?section=patient_info" class="btn btn-pink w-100">1. Basic Information</a></td>
+            <td><a href="patient_view_basic_info.php" class="btn btn-pink w-100">1. Basic Information</a></td>
+           
         </tr>
         <tr>
-            <td><a href="patient_health_record_detail_patientinfo.php?section=past_pregnancy_history" class="btn btn-pink w-100">2. Past Pregnancy History</a></td>
+            <td><a href="patient_view_past_pregnancyHistory.php" class="btn btn-pink w-100">2. Past Pregnancy History</a></td>
         </tr>
         <tr>
-            <td><a href="patient_health_record_detail_patientinfo.php?section=family_health_history" class="btn btn-pink w-100">3.Family Health History</a></td>
+            <td><a href="patient_view_family_health_history.php" class="btn btn-pink w-100">3.Family Health History</a></td>
         </tr>
 
         <!-- Consent & Approval -->
         <tr><td rowspan="3">Consent & Approval</td>
-            <td><a href="patient_health_record_detail_patientinfo.php?section=blood_collection_consent" class="btn btn-pink w-100">4. Blood Collection Consent</a></td>
+            <td><a href="patient_view_blood_collection_consent.php" class="btn btn-pink w-100">4. Blood Collection Consent</a></td>
         </tr>
         <tr>
-            <td><a href="patient_health_record_detail_patientinfo.php?section=consent_declaration" class="btn btn-pink w-100">5. Consent Declaration</a></td>
+            <td><a href="patient_view_consent_declaration.php" class="btn btn-pink w-100">5. Consent Declaration</a></td>
         </tr>
         <tr>
-            <td><a href="patient_health_record_detail_patientinfo.php?section=refusal_of_treatment" class="btn btn-pink w-100">6. Refusal of Treatment</a></td>
+            <td><a href="patient_view_refusal_of_treatment.php" class="btn btn-pink w-100">6. Refusal of Treatment</a></td>
         </tr>
 
         <!-- Health Monitoring -->
         <tr><td rowspan="10">Health Monitoring</td>
-            <td><a href="patient_health_record_detail_patientinfo.php?section=checklist_ogtt_screening_criteria" class="btn btn-pink w-100">7. Checklist OGTT Criteria</a></td>
+            <td><a href="patient_view_checklist_ogtt_screening_criteria.php" class="btn btn-pink w-100">7. Checklist OGTT Criteria</a></td>
         </tr>
         <tr>
-            <td><a href="patient_health_record_detail_patientinfo.php?section=ogtt_result" class="btn btn-pink w-100">8. OGTT Result</a></td>
+            <td><a href="patient_view_ogtt_result.php" class="btn btn-pink w-100">8. OGTT Result</a></td>
         </tr>
         <tr>
-            <td><a href="patient_health_record_detail_patientinfo.php?section=HbA1c_result" class="btn btn-pink w-100">9. HbA1c Result</a></td>
+            <td><a href="patient_view_HbA1c_result.php" class="btn btn-pink w-100">9. HbA1c Result</a></td>
         </tr>
         <tr>
-            <td><a href="patient_health_record_detail_patientinfo.php?section=blood_sugar" class="btn btn-pink w-100">10. Blood Sugar Monitoring</a></td>
+            <td><a href="patient_view_record_detail_patientinfo.php?section=blood_sugar" class="btn btn-pink w-100">10. Blood Sugar Monitoring</a></td>
         </tr>
         <tr>
-            <td><a href="patient_health_record_detail_patientinfo.php?section=blood_pressure" class="btn btn-pink w-100">11. Blood Pressure Monitoring</a></td>
+            <td><a href="patient_view_record_detail_patientinfo.php?section=blood_pressure" class="btn btn-pink w-100">11. Blood Pressure Monitoring</a></td>
         </tr>
         <tr>
-            <td><a href="patient_health_record_detail_patientinfo.php?section=preeclampsia_monitoring" class="btn btn-pink w-100">12. Pre-Eclampsia Monitoring</a></td>
+            <td><a href="patient_view_record_detail_patientinfo.php?section=preeclampsia_monitoring" class="btn btn-pink w-100">12. Pre-Eclampsia Monitoring</a></td>
         </tr>
         <tr>
             <td><a href="patient_health_record_detail_patientinfo.php?section=weight_monitoring" class="btn btn-pink w-100">13. Weight Monitoring</a></td>
         </tr>
         <tr>
-            <td><a href="patient_health_record_detail_patientinfo.php?section=hemoglobin_monitoring" class="btn btn-pink w-100">14. Hemoglobin Monitoring</a></td>
+            <td><a href="patient_view_record_detail_patientinfo.php?section=hemoglobin_monitoring" class="btn btn-pink w-100">14. Hemoglobin Monitoring</a></td>
         </tr>
         <tr>
-            <td><a href="patient_health_record_detail_patientinfo.php?section=ultrasound_results" class="btn btn-pink w-100">15. Ultrasound Results</a></td>
+            <td><a href="patient_view_record_detail_patientinfo.php?section=ultrasound_results" class="btn btn-pink w-100">15. Ultrasound Results</a></td>
         </tr>
         <tr>
-            <td><a href="patient_health_record_detail_patientinfo.php?section=current_pregnancy_examination" class="btn btn-pink w-100">16. Current Pregnancy Examination</a></td>
+            <td><a href="patient_view_record_detail_patientinfo.php?section=current_pregnancy_examination" class="btn btn-pink w-100">16. Current Pregnancy Examination</a></td>
         </tr>
 
         <!-- Postnatal Care -->
