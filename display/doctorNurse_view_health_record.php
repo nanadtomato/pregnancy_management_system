@@ -94,48 +94,46 @@ $section = $_GET['section'] ?? 'patient_info'; // Default to 'patient_info'
 
                 <!-- Health Monitoring Section -->
                 <tr>
-                <td rowspan="10">Health Monitoring</td>
-                        <td><a href="doctorNurse_view_checklist_ogtt_screening_criteria.php?user_id=<?= $user_id ?>" class="btn btn-link">7. Checklist OGTT Screening Criteria</a></td>
+                <td rowspan="9">Health Monitoring</td>
+                        <td><a href="doctorNurse_view_checklist_ogtt_hba1c.php?user_id=<?= $user_id ?>" class="btn btn-link">7. Checklist OGTT Screening Criteria, OGTT Result & HbA1c Result</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_ogtt_result.php?user_id=<?= $user_id ?>" class="btn btn-link">8. OGTT Result</a></td>
+                        <td><a href="doctorNurse_view_blood_sugar_monitoring.php?user_id=<?= $user_id ?>" class="btn btn-link">8. Blood Sugar Monitoring</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_HbA1c_result.php?user_id=<?= $user_id ?>" class="btn btn-link">9. HbA1c Result</a></td>
+                        <td><a href="doctorNurse_view_blood_pressure_monitoring.php?user_id=<?= $user_id ?>" class="btn btn-link">9. Blood Pressure Monitoring</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_blood_sugar.php?user_id=<?= $user_id ?>" class="btn btn-link">10. Blood Sugar Monitoring</a></td>
+                        <td><a href="doctorNurse_view_preeclampsia_monitoring.php?user_id=<?= $user_id ?>" class="btn btn-link">10. Pre-Eclampsia Profile Monitoring</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_subsection_health_record.php?user_id=<?= $user_id ?>&section=blood_pressure" class="btn btn-link">11. Blood Pressure Monitoring</a></td>
+                        <td><a href="doctorNurse_view_weight_monitoring.php?user_id=<?= $user_id ?>" class="btn btn-link">11. Weight Monitoring</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_subsection_health_record.php?user_id=<?= $user_id ?>&section=preeclampsia_monitoring" class="btn btn-link">12. Pre-Eclampsia Profile Monitoring</a></td>
+                        <td><a href="doctorNurse_view_hemoglobin_monitoring.php?user_id=<?= $user_id ?>" class="btn btn-link">12. Hemoglobin Monitoring</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_subsection_health_record.php?user_id=<?= $user_id ?>&section=weight_monitoring" class="btn btn-link">13. Weight Monitoring</a></td>
+                        <td><a href="doctorNurse_view_kicking_monitoring.php?user_id=<?= $user_id ?>" class="btn btn-link">13. Kicking Monitoring</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_subsection_health_record.php?user_id=<?= $user_id ?>&section=hemoglobin_monitoring" class="btn btn-link">14. Hemoglobin Monitoring</a></td>
+                        <td><a href="doctorNurse_view_ultrasound_results.php?user_id=<?= $user_id ?>" class="btn btn-link">14. Ultrasound Results</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_subsection_health_record.php?user_id=<?= $user_id ?>&section=ultrasound_results" class="btn btn-link">15. Ultrasound Results</a></td>
+                        <td><a href="doctorNurse_view_current_pregnancy_examination.php?user_id=<?= $user_id ?>" class="btn btn-link">15. Current Pregnancy Examination</a></td>
                     </tr>
-                    <tr>
-                        <td><a href="doctorNurse_view_subsection_health_record.php?user_id=<?= $user_id ?>&section=current_pregnancy_examination" class="btn btn-link">16. Current Pregnancy Examination</a></td>
-                    </tr>
+                    
 
 
                 <!-- Postnatal Care Section -->
                 <tr>
                 <td rowspan="3">Postnatal Care</td>
-                        <td><a href="doctorNurse_view_subsection_health_record.php?user_id=<?= $user_id ?>&section=postnatal_home_visits" class="btn btn-link">17. Postnatal Home Visits</a></td>
+                        <td><a href="doctorNurse_view_postnatal_home_visits.php?user_id=<?= $user_id ?>" class="btn btn-link">16. Postnatal Home Visits</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_subsection_health_record.php?user_id=<?= $user_id ?>&section=postnatal_issues_management" class="btn btn-link">18. Postnatal Issues & Management</a></td>
+                        <td><a href="doctorNurse_view_postnatal_issues_management.php?user_id=<?= $user_id ?>" class="btn btn-link">17. Postnatal Issues & Management</a></td>
                     </tr>
                     <tr>
-                        <td><a href="doctorNurse_view_subsection_health_record.php?user_id=<?= $user_id ?>&section=thromboprophylaxis_injection_schedule" class="btn btn-link">19. Thromboprophylaxis Injection</a></td>
+                        <td><a href="doctorNurse_view_thromboprophylaxis_injection_schedule.php?user_id=<?= $user_id ?>e" class="btn btn-link">18. Thromboprophylaxis Injection</a></td>
                     </tr>
             </tbody>
         </table>

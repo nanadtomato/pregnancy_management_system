@@ -122,7 +122,7 @@ if (!$data) {
                 </div>
             </div>
 
-           
+            <a href="patient_health_record.php" class="btn btn-secondary btn-rounded">Back</a>
         </main>
     </div>
 

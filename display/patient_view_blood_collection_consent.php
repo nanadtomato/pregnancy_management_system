@@ -212,7 +212,7 @@ $stmt->close();
     <?php else: ?>
         <div class="alert alert-warning">No blood collection consent data found.</div>
     <?php endif; ?>
-
+    <a href="patient_health_record.php" class="btn btn-secondary btn-rounded">Back</a>
     </main>
 </div>
 

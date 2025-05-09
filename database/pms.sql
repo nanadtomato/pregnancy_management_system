@@ -239,3 +239,63 @@ CREATE TABLE treatment_refusal_forms (
 );
 
 
+CREATE TABLE ogtt_screening_criteria (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    patient_id INT NOT NULL,
+    bmi_over_27 BOOLEAN,
+    history_of_gdm BOOLEAN,
+    family_history_diabetes BOOLEAN,
+    macrosomic_baby BOOLEAN,
+    bad_obstetric_history BOOLEAN,
+    glycosuria BOOLEAN,
+    current_obstetric_problems BOOLEAN,
+    age_over_25 BOOLEAN,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (patient_id) REFERENCES patients(id)
+);
+
+CREATE TABLE ogtt_test_results (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    patient_id INT NOT NULL,
+    test_date DATE,
+    pog VARCHAR(50),
+    fasting_blood_sugar DECIMAL(4,2),
+    two_hour_postprandial DECIMAL(4,2),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (patient_id) REFERENCES patients(id)
+);
+
+CREATE TABLE hba1c_test_results (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    patient_id INT NOT NULL,
+    test_date DATE,
+    pog VARCHAR(50),
+    hba1c DECIMAL(4,2),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (patient_id) REFERENCES patients(id)
+);
+
+CREATE TABLE blood_sugar_monitoring (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    patient_id INT NOT NULL,
+    monitoring_datetime DATETIME NOT NULL,
+    pre_post_breakfast DECIMAL(5,2),
+    pre_post_lunch DECIMAL(5,2),
+    pre_post_dinner DECIMAL(5,2),
+    pre_bed DECIMAL(5,2),
+    notes TEXT,
+    FOREIGN KEY (patient_id) REFERENCES patients(id)
+);
+
+CREATE TABLE blood_pressure_monitoring (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    patient_id INT NOT NULL,
+    monitoring_datetime DATETIME NOT NULL,
+    symptoms VARCHAR(255) NULL,
+    blood_pressure VARCHAR(50) NOT NULL,
+    weight DECIMAL(5,2) NOT NULL,
+    fetal_heart_rate VARCHAR(50) NULL,
+    urine_protein VARCHAR(50) NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (patient_id) REFERENCES patients(id)
+);

@@ -595,3 +595,17 @@ a {
             width: 1.2em;
             margin-left: 1.2em;
         }
+
+        
+        .btn-pink:hover {
+            background-color: #c2185b;
+        }
+
+        .form-container {
+            margin: 30px auto;
+            padding: 30px;
+            background-color: #f8f9fa;
+            border-radius: 10px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            max-width: 900px;
+        

@@ -61,7 +61,7 @@ $stmt->close();
 <body>
 <div class="main-content">
     <main>
-    <h2>Maternal and Child Healthcare Consent Form</h2>
+    <h2 class="text-center mb-4">Maternal and Child Healthcare Consent Form</h2>
 
 
 

@@ -65,46 +65,44 @@ $userFirstName = $_SESSION['name'];
         </tr>
 
         <!-- Health Monitoring -->
-        <tr><td rowspan="10">Health Monitoring</td>
-            <td><a href="patient_view_checklist_ogtt_screening_criteria.php" class="btn btn-pink w-100">7. Checklist OGTT Criteria</a></td>
+        <tr><td rowspan="9">Health Monitoring</td>
+            <td><a href="patient_view_checklist_ogtt_hba1c.php" class="btn btn-pink w-100">7. Checklist OGTT Screening Criteria, OGTT Result & HbA1c Result </a></td>
         </tr>
         <tr>
-            <td><a href="patient_view_ogtt_result.php" class="btn btn-pink w-100">8. OGTT Result</a></td>
+            <td><a href="patient_view_blood_sugar_monitoring.php" class="btn btn-pink w-100">8. Blood Sugar Monitoring</a></td>
         </tr>
         <tr>
-            <td><a href="patient_view_HbA1c_result.php" class="btn btn-pink w-100">9. HbA1c Result</a></td>
+            <td><a href="patient_view_blood_pressure_monitoring.php" class="btn btn-pink w-100">9. Blood Pressure Monitoring</a></td>
         </tr>
         <tr>
-            <td><a href="patient_view_record_detail_patientinfo.php?section=blood_sugar" class="btn btn-pink w-100">10. Blood Sugar Monitoring</a></td>
+            <td><a href="patient_view_preeclampsia_monitoring.php?" class="btn btn-pink w-100">10. Pre-Eclampsia Profile Monitoring</a></td>
         </tr>
         <tr>
-            <td><a href="patient_view_record_detail_patientinfo.php?section=blood_pressure" class="btn btn-pink w-100">11. Blood Pressure Monitoring</a></td>
+            <td><a href="patient_view_weight_monitoring.php?" class="btn btn-pink w-100">11. Weight Monitoring</a></td>
         </tr>
         <tr>
-            <td><a href="patient_view_record_detail_patientinfo.php?section=preeclampsia_monitoring" class="btn btn-pink w-100">12. Pre-Eclampsia Monitoring</a></td>
+            <td><a href="patient_view_hemoglobin_monitoring.php?" class="btn btn-pink w-100">12. Hemoglobin Monitoring</a></td>
         </tr>
         <tr>
-            <td><a href="patient_health_record_detail_patientinfo.php?section=weight_monitoring" class="btn btn-pink w-100">13. Weight Monitoring</a></td>
+            <td><a href="patient_view_kicking_monitoring.php?" class="btn btn-pink w-100">13. Kicking Monitoring</a></td>
         </tr>
         <tr>
-            <td><a href="patient_view_record_detail_patientinfo.php?section=hemoglobin_monitoring" class="btn btn-pink w-100">14. Hemoglobin Monitoring</a></td>
+            <td><a href="patient_view_ultrasound_results.php?" class="btn btn-pink w-100">14. Ultrasound Results</a></td>
         </tr>
         <tr>
-            <td><a href="patient_view_record_detail_patientinfo.php?section=ultrasound_results" class="btn btn-pink w-100">15. Ultrasound Results</a></td>
+            <td><a href="patient_view_view_current_pregnancy_examination.php?" class="btn btn-pink w-100">15. Current Pregnancy Examination</a></td>
         </tr>
-        <tr>
-            <td><a href="patient_view_record_detail_patientinfo.php?section=current_pregnancy_examination" class="btn btn-pink w-100">16. Current Pregnancy Examination</a></td>
-        </tr>
+       
 
         <!-- Postnatal Care -->
         <tr><td rowspan="3">Postnatal Care</td>
-            <td><a href="patient_health_record_detail_patientinfo.php?section=postnatal_home_visits" class="btn btn-pink w-100">17. Postnatal Home Visits</a></td>
+            <td><a href="patient_view_postnatal_home_visits.php?" class="btn btn-pink w-100">16. Postnatal Home Visits</a></td>
         </tr>
         <tr>
-            <td><a href="patient_health_record_detail_patientinfo.php?section=postnatal_issues_management" class="btn btn-pink w-100">18. Postnatal Issues & Management</a></td>
+            <td><a href="patient_health_record_detail_patientinfo.php?section=postnatal_issues_management" class="btn btn-pink w-100">17. Postnatal Issues & Management</a></td>
         </tr>
         <tr>
-            <td><a href="patient_health_record_detail_patientinfo.php?section=thromboprophylaxis_injection_schedule" class="btn btn-pink w-100">19. Thromboprophylaxis Injection</a></td>
+            <td><a href="patient_view_thromboprophylaxis_injection_schedule.php?" class="btn btn-pink w-100">18. Thromboprophylaxis Injection</a></td>
         </tr>
     </tbody>
 </table>

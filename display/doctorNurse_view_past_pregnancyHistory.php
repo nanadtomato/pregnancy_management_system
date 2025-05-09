@@ -114,6 +114,9 @@ $result = $stmt->get_result();
                         <?php endwhile; ?>
                     </tbody>
                 </table>
+                
+
+
             </div>
         <?php else: ?>
             <p>No past pregnancy history found for this patient.</p>

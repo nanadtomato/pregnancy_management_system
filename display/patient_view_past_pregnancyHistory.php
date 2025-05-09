@@ -94,6 +94,8 @@ $result = $stmt->get_result();
             <?php else: ?>
                 <p>No past pregnancy history found for this patient.</p>
             <?php endif; ?>
+
+            <a href="patient_health_record.php" class="btn btn-secondary btn-rounded">Back</a>
         </main>
     </div>
 
